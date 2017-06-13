@@ -54,6 +54,64 @@ a{
 	\border: 1px solid 	#E0E0E0;*/
 	margin: 0 auto;
 }
+
+.header{
+	height: 150px;
+	position: relative;
+	margin-bottom: 20px;
+	width: 1200px;
+}
+
+.headerlogo1{
+	float:left;
+	margin-right: 100px;
+}
+
+.headerlogo1 img{
+	height: 130px;
+	padding:10px;
+}
+
+
+.headerlist{
+	float:left;
+	margin-right: 50px;
+	position: absolute;
+	right:50px;
+	bottom: 0;
+
+}
+
+.headerlist li{
+	float:left;
+}
+
+.headerlist li a{
+	height:60px;
+	line-height: 60px;
+	font-size: 18px;
+	display: block;
+	text-decoration: none;
+	width: 250px;
+	color: #3C3C3C;
+	text-align: center;
+	padding:10px;
+	border-right:1px solid #E0E0E0;
+}
+
+.headerlist a:hover{
+	background:  #3C3C3C;
+	color:#FFF;
+}
+
+#headerLogin img{
+	width: 40px;
+	height: 40px;
+	border-radius:50%;
+	margin-right:10px;
+	vertical-align:middle;
+}
+
 .index_body{
 	margin-top: 20px;
 }
