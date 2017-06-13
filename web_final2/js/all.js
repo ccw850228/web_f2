@@ -70,28 +70,8 @@ function changeheader(name,img){
 	document.getElementById('headerLogin').innerHTML='<a href="#"><img src="'+img+'">'+name+'</a>';
 }
 
-function Type_All(){
-	alert("TypeAll");
-	var database=firebase.database();
-	var ProductRef=database.ref('Product/');
-	console.log('test');
-	ProductRef.on('value', function(snapshot) {
-		alert('test')
-    	snapshot.forEach(function(childSnapshot) {
-      		var childData = childSnapshot.val();
-      		alert(childData);
-    	});
-	});
-}
-
-function Type_Product1(){
-	alert("TypeProduct1");
-}
-
-function Type_Product2(){
-	alert("Type_Product2");
-}
-
-function Type_Product3(){
-	alert("Type_Product3()");
+function ListGoods(page){
+	if(page==1){
+		alert("1");
+	}
 }
