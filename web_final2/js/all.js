@@ -7,6 +7,24 @@ var config = {
 	messagingSenderId: "269057605882"
 	};
 
+$( document ).ready(function() {
+    	console.log( "ready!" );
+    	firebase.auth().onAuthStateChanged(function(user) {
+		  if (user) {
+		  		var name = user.displayName;
+		  		var photoUrl = user.photoURL;
+		        console.log("is login");
+		        console.log(user);
+		        changeheader(name,photoUrl);
+		        $( "#headerLogout" ).show();
+		    }else{
+		    	$( "#headerLogout" ).hide();
+		    	console.log("no login");
+		    	console.log(user);
+		    }
+	});
+});
+
 function login(){
 	var provider = new firebase.auth.FacebookAuthProvider();
 	provider.setCustomParameters({
