@@ -8,7 +8,6 @@ var config = {
 	};
 
 $( document ).ready(function() {
-    	console.log( "ready!" );
     	firebase.auth().onAuthStateChanged(function(user) {
 		  if (user) {
 		  		var name = user.displayName;
