@@ -39,6 +39,21 @@ function login(){
   		photoUrl = user.photoURL;
   		uid = user.uid;
   		console.log(uid);
+  			var database=firebase.database();
+			var usersRef=database.ref('Users/');
+			usersRef.once('value', function(snapshot) {
+    			if(snapshot.hasChild(uid)){
+    				alert(uid+'exist');
+    			}else{
+    				alert(uid+"not exist");
+  					database.ref('Users/'+uid+'/').set({
+  						username: name,
+  						email: email,
+  						profile_pic:photoUrl		
+  			});
+    		}
+   	 		
+  		});
   		$( "#headerLogout" ).show();
 
 	}).catch(function(error) {
