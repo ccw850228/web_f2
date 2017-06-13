@@ -74,7 +74,7 @@ function Type_All(){
 	alert("TypeAll");
 	var database=firebase.database();
 	var ProductRef=database.ref('Product/');
-	console.log(ProductRef);
+	alert(ProductRef);
 }
 
 function Type_Product1(){
