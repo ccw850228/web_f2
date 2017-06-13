@@ -74,7 +74,9 @@ function Type_All(){
 	alert("TypeAll");
 	var database=firebase.database();
 	var ProductRef=database.ref('Product/');
+	console.log('test');
 	ProductRef.on('value', function(snapshot) {
+		alert('test');
     	snapshot.forEach(function(childSnapshot) {
       		var childData = childSnapshot.val();
       		alert(childData);
