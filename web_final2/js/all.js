@@ -154,25 +154,3 @@ $(function(){
 		_selectedIndex = _index;
 	}).eq(_selectedIndex).addClass('selected').find('a').width(_selectedWidth);
 });
-
-// 用 speed 表示切換輪播的速度
-var timer, speed = 1000;
- 
-// 用來自動輪播使用
-function auto(){
-	var _index = (_selectedIndex + 1) % $li.length;
-	$li.eq(_index).mouseover();
- 
-	timer = setTimeout(auto, speed + _animateSpeed);
-}
- 
-$block.hover(function(){
-	// 當滑鼠移入時, 停止計時器
-	clearTimeout(timer);
-}, function(){
-	// 當滑鼠移出時, 啟動計時器
-	timer = setTimeout(auto, speed);
-});
- 
-// 啟動計時器
-timer = setTimeout(auto, speed);
