@@ -2,28 +2,47 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css\style.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src='js\all.js'></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+	<script>
+	  firebase.initializeApp(config);
+	</script>
 </head>
 <body>
 	<div class="wrap">
-		<div class="header"></div>
+		<div class="header">
+			<div class="headerlogo1">
+				<img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/12888674_641166666022602_8845148715942982024_o.png?oh=378a420158b9af671e12c9ea3c169677&oe=59A64CEB">
+			</div>
+			<div class="headerlist">
+				<ul>
+					<li id="headerCart"><a href="#" >購物車</a></li>
+					<li id="headerLogin"><a href="#"onClick="login()">登入</a></li>
+					<li id="headerLogout"><a href="#"onClick="logout()">登出</a></li>
+				</ul>
+			</div>
+		</div>
+		</div>
 		<div class="index_body">
 			<div class="category">
 				<ul class="list">
-					<li><a href="">杏仁肉乾脆片</a></li>
-					<li><a href="">虱目魚肉乾脆片</a></li>
-					<li><a href="">肉乾系列</a></l>
-					<li><a href="">全部</a></li>
-					
-					
-					</ul>
+					<li><a href="goodslist.html" onClick="Type_All()">全部</a></li>
+					<li><a href="goodslist.html" onClick="Type_Product1()">肉乾系列</a></li>
+					<li><a href="goodslist.html" onClick="Type_Product2()">杏仁肉乾脆片</a></l>
+					<li><a href="goodslist.html" onClick="Type_Product3()">虱目魚肉乾脆片</a></li>	
+				</ul>
 			</div>
 
-			<div class="body_main">
+			<div class="body_main"  id="body_main">
 				<div class="goods">
 						<a href="#">
-						<img src="a" alt="">
+						<img src="#" alt="">
 
 					<div class="goods_name">
 						<h3>
@@ -37,7 +56,7 @@
 
 				<div class="goods">
 						<a href="#">
-						<img src="a" alt="">
+						<img src="#" alt="">
 
 					<div class="goods_name">
 						<h3>
@@ -51,7 +70,7 @@
 
 				<div class="goods">
 						<a href="#">
-						<img src="a" alt="">
+						<img src="#" alt="">
 
 					<div class="goods_name">
 						<h3>
