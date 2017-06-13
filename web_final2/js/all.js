@@ -13,14 +13,10 @@ $( document ).ready(function() {
 		  if (user) {
 		  		var name = user.displayName;
 		  		var photoUrl = user.photoURL;
-		        console.log("is login");
-		        console.log(user);
 		        changeheader(name,photoUrl);
 		        $( "#headerLogout" ).show();
 		    }else{
 		    	$( "#headerLogout" ).hide();
-		    	console.log("no login");
-		    	console.log(user);
 		    }
 	});
 });
@@ -38,14 +34,13 @@ function login(){
   		email = user.email;
   		photoUrl = user.photoURL;
   		uid = user.uid;
-  		console.log(uid);
+
   			var database=firebase.database();
 			var usersRef=database.ref('Users/');
 			usersRef.once('value', function(snapshot) {
     			if(snapshot.hasChild(uid)){
-    				alert(uid+'exist');
+    				
     			}else{
-    				alert(uid+"not exist");
   					database.ref('Users/'+uid+'/').set({
   						username: name,
   						email: email,
@@ -66,17 +61,28 @@ function login(){
 
 function logout(){
 	firebase.auth().signOut().then(function() {
- 	console.log("logout ok");
  	document.getElementById('headerLogin').innerHTML='<a href="#" onClick="login()">登入</a>';
- 	 // Sign-out successful.
 		}).catch(function(error) {
-  	// An error happened.
   	console.log("logout error");
 	});
 	}
 
 function changeheader(name,img){
-	console.log("name:"+name);
-	console.log("img:"+img);
 	document.getElementById('headerLogin').innerHTML='<a href="#"><img src="'+img+'">'+name+'</a>';
+}
+
+function Type_All(){
+	alert("TypeAll");
+}
+
+function Type_Product1(){
+	alert("TypeProduct1");
+}
+
+function Type_Product2(){
+	alert("Type_Product2");
+}
+
+function Type_Product3(){
+	alert("Type_Product3()");
 }
