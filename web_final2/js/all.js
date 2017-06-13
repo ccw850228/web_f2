@@ -75,9 +75,9 @@ function ListGoods(page){
 		case 1:
 			alert("1");
 			var ProductRef=firebase.database().ref('/Product/Product_1');
-				ProductRef.once('value', function(snapshot) {
+				ProductRef.once('value').then(function(snapshot) {
 				var P_Name=snapshot.child("P_Name").val();
-				alert(P_Name);
+				return P_Name;
 			});
 			break;
 		case 2:
