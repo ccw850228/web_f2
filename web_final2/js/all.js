@@ -74,8 +74,11 @@ function Type_All(){
 	alert("TypeAll");
 	var database=firebase.database();
 	var ProductRef=database.ref('Product/');
-	ProductRef.orderByChild("P_Name").on('value',function(snapshot){
-		alert(snapshot.val());
+	ProductRef.on('value', function(snapshot) {
+    	snapshot.forEach(function(childSnapshot) {
+      		var childData = childSnapshot.val();
+      		alert(childData);
+    	});
 	});
 }
 
