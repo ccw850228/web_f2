@@ -72,6 +72,9 @@ function changeheader(name,img){
 
 function Type_All(){
 	alert("TypeAll");
+	var database=firebase.database();
+	var ProductRef=database.ref('Product/');
+	console.log(ProductRef);
 }
 
 function Type_Product1(){
