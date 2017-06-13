@@ -76,7 +76,7 @@ function Type_All(){
 	var ProductRef=database.ref('Product/');
 	console.log('test');
 	ProductRef.on('value', function(snapshot) {
-		alert('test');
+		alert('test')
     	snapshot.forEach(function(childSnapshot) {
       		var childData = childSnapshot.val();
       		alert(childData);
