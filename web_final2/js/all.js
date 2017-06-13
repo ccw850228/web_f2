@@ -73,7 +73,6 @@ function changeheader(name,img){
 function ListGoods(page){
 	switch(page){
 		case 1:
-			alert("1");
 			var Ref=firebase.database().ref('/Product/');
 			//get Item Num
 			Ref.on("value",function(snapshot){
@@ -83,12 +82,15 @@ function ListGoods(page){
 								var node=document.createElement("DIV");
 								var att=document.createAttribute("class");
 								var attid=document.createAttribute("id");
+								var aid=document.createAttribute("id");
 								var a=document.createElement("A");
 								var href=document.createAttribute("href");
 								att.value="goods";
 								attid.value="good"+i;
+								aid.value="a"+i;
 								href.value="#";
 								a.setAttributeNode(href);
+								a.setAttributeNode(aid);
 								node.setAttributeNode(attid);
 								node.setAttributeNode(att);
 								node.appendChild(a);
@@ -103,8 +105,8 @@ function ListGoods(page){
 						var src=document.createAttribute("src");
 						src.value=img;
 						node.setAttributeNode(src);
-						var id="good"+i;
-						document.getElementById(id).appendChild(node);
+						var aid="a"+i;
+						document.getElementById(aid).appendChild(node);
 						//name&price
 						var name=snapshot.child('P_Name').val();
 						var node=document.createElement("DIV");
@@ -121,46 +123,21 @@ function ListGoods(page){
 						node.setAttributeNode(c);
 						node.appendChild(h);
 						node.appendChild(sp);
-						document.getElementById(id).appendChild(node);
-						//price
-						
-
-
-						/*var node=document.createElement("DIV");
-						var att=document.createAttribute("class");
-						var h=createElement("H3");
-						var t=document.createTextNode(snapshot.child('P_Name').val());
-						h.appendChild(t);
-						document.getElementById("good"+i).appendChild(h);
-						att.value="goods_name";
-						node.setAttributeNode(att);*/
-
-						/*var snapshot=JSON.stringify(snapshot.val());
-						console.log(snapshot[1]);*/
+						document.getElementById(aid).appendChild(node);
 					});
-						/*Ref.orderByChild("P_Name").on("value",function(snapshot){
-						snapshot.forEach(function(childSnapshot){
-							var Key=childSnapshot.key;
-							var childData=childSnapshot.val();
-							console.log(Key+":"+childData);
-						});
-					});*/
+					
 				}
 			});
-				/*Ref.orderByKey().once('value').then(function(snapshot) {
-				var key=snapshot.key;
-				alert(key);
-			});*/
+				
 			break;
 		case 2:
-			alert("2");
 			break;
 		case 3:
-			alert("3");
+			
 			break;
 		case 4:
-			alert("4");
-	}
+			break;
+			}
 }
 
 
