@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css\style.css">
 	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-	<script src='js/all.js'></script>
+	<script src='js\all.js'></script>
 	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-database.js"></script>
@@ -12,25 +12,6 @@
 	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
 	<script>
 	  firebase.initializeApp(config);
-	</script>
-	<script type="text/javascript">
-		$( document ).ready(function() {
-    		console.log( "ready!" );
-    		firebase.auth().onAuthStateChanged(function(user) {
-		  		if (user) {
-		  			var name = user.displayName;
-		  			var photoUrl = user.photoURL;
-		        	console.log("is login");
-		        	console.log(user);
-		        	changeheader(name,photoUrl);
-		        	$( "#headerLogout" ).show();
-		    	}else{
-		    		$( "#headerLogout" ).hide();
-		    		console.log("no login");
-		    		console.log(user);
-		    	}
-		 	});
-		 });
 	</script>
 </head>
 <body>
@@ -47,6 +28,7 @@
 				</ul>
 			</div>
 		</div>
+		
 		<div class="index_body">
 			<div class="category">
 				<ul class="list">
@@ -62,7 +44,7 @@
 			<div class="body_main">
 				<div class="goods">
 						<a href="#">
-						<img src="a" alt="">
+						<img src="#" alt="">
 
 					<div class="goods_name">
 						<h3>
@@ -76,7 +58,7 @@
 
 				<div class="goods">
 						<a href="#">
-						<img src="a" alt="">
+						<img src="#" alt="">
 
 					<div class="goods_name">
 						<h3>
@@ -90,7 +72,7 @@
 
 				<div class="goods">
 						<a href="#">
-						<img src="a" alt="">
+						<img src="#" alt="">
 
 					<div class="goods_name">
 						<h3>
@@ -113,6 +95,7 @@
 
 
 		 </div>	
+
 
 	</div>
 </body>
