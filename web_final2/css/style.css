@@ -291,7 +291,7 @@ table {
 	height: 35px;
 	position: absolute;
 	bottom: 0;
-	font-size: 13px;
+	font-size: 16px;
 	z-index: 2;
 }
 #new_arrival .controls li {
@@ -309,6 +309,71 @@ table {
 	text-decoration: none;
 }
 #new_arrival .controls li.selected a {
-	background: #99FF99;
-	color:	#880000;
+	background: orangered;
+	color:	#fff;
+}
+
+
+ .body_main .hot{
+ 	width: 900px;
+ 	height: 500px;
+ 	border:1px solid red;
+ 	margin-top: 50px;
+ } 
+
+
+ .body_main .hot { 
+ 	width: 900px;
+ 	height: 430px;
+ 	border:1px solid red;
+ 	padding-top: 40px;
+ 	margin-top: 30px;
+ 	position: relative;
+ } 
+
+
+#hhh{
+	display: block;
+	width: 150px;
+	padding: 20px 50px;
+	border:1px solid red;
+	position: absolute;
+	left: 20px;
+	top:-20px;
+	background: #fff;
+	font-size: 20px;
+	text-align: center;
+}
+
+/*-----cart-------*/
+
+
+.cart_body{
+	width: 1000px;
+	margin: 0 auto;
+	height: 500px;
+	border:1px solid gray;
+;}
+.body_main table, .body_main tr,.body_main th, .body_main td{
+	border:1px solid gray;
+}
+
+.tname{
+	width: 400px;
+	padding: 20px 0;
+}
+
+.tprice{
+	width: 300px;
+	padding: 20px 0;
+}
+
+.tnum{
+	width: 300px;
+	padding: 20px 0;
+}
+
+.body_main td{
+	padding: 10px 0;
+	text-align: center;
 }
