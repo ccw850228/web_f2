@@ -399,7 +399,7 @@ a{
 	font-size: 20px;
 }
 
-.body_main h3{
+.cart_body h3{
 	width:850px;
 	height:80px;
 	font-size: 25px;
@@ -451,7 +451,7 @@ a{
 	float: right;
 }
 
-.body_main img{
+.cart_body img{
 	float:left;
 	margin-top:3px;
 	width:80px;
