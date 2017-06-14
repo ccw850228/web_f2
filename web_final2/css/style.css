@@ -193,6 +193,10 @@ a{
 }
 
 /*-------detail---------*/
+.detail_img img{
+	width: 350px;
+	height: 450px;
+}
 
 .detail_img{
 	width: 350px;
@@ -356,7 +360,7 @@ a{
 	height: auto;
 	/*border:1px solid gray;*/
 ;}
-.body_main table, .body_main tr,.body_main th, .body_main td{
+.cart_body table, .cart_body tr,.cart_body th, .cart_body td{
 	border:1px solid gray;
 }
 
@@ -381,11 +385,11 @@ a{
 	padding: 20px 0;
 }
 
-.body_main th{
+.cart_body th{
 
 	background-color: #F4A460;
 }
-.body_main td{
+.cart_body td{
 	padding: 10px 0;
 	text-align: center;
 	background-color: 	#FFE4E1;
@@ -451,7 +455,7 @@ a{
 	float: right;
 }
 
-.cart_body img{
+.cart_ img{
 	float:left;
 	margin-top:3px;
 	width:80px;
