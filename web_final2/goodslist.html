@@ -13,11 +13,6 @@
 	<script>
 	  firebase.initializeApp(config);
 	</script>
-	<script>
-		$(document).ready(function(){
-			ListGoods(1);
-		});
-	</script>
 </head>
 <body>
 	<div class="wrap">
@@ -36,10 +31,10 @@
 		<div class="index_body">
 			<div class="category">
 				<ul class="list">
-					<li><a href="goodslist.html">全部</a></li>
-					<li><a href="goodslist2.html">肉乾系列</a></li>
-					<li><a href="goodslist3.html">杏仁肉乾脆片</a></l>
-					<li><a href="goodslist4.html">虱目魚肉乾脆片</a></li>	
+					<li><a href="goodslist.html?1" onclick="ListGoods()">全部</a></li>
+					<li><a href="goodslist.html?2" onclick="ListGoods()">肉乾系列</a></li>
+					<li><a href="goodslist.html?3" onclick="ListGoods()">杏仁肉乾脆片</a></l>
+					<li><a href="goodslist.html?4" onclick="ListGoods()">虱目魚肉乾脆片</a></li>
 				</ul>
 			</div>
 
