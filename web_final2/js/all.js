@@ -88,7 +88,7 @@ function ListGoods(page){
 								att.value="goods";
 								attid.value="good"+i;
 								aid.value="a"+i;
-								href.value="#";
+								href.value="goodsdetail.html"+"?"+"Product_"+i;
 								a.setAttributeNode(href);
 								a.setAttributeNode(aid);
 								node.setAttributeNode(attid);
@@ -203,3 +203,177 @@ $(function(){
 		_selectedIndex = _index;
 	}).eq(_selectedIndex).addClass('selected').find('a').width(_selectedWidth);
 });
+
+
+function show() {
+	
+
+    var url = location.search;
+     
+    //取得問號之後的值
+    var temp = url.split("?");
+ 
+  	 console.log(temp[1]);
+
+
+
+	var Ref=firebase.database().ref('/Product/'+temp[1]);
+			//get Item Num
+			Ref.on("value",function(snapshot){
+				//img
+				var node=document.createElement("DIV");
+				var attc=document.createAttribute("class");
+				var attid=document.createAttribute("id");
+				attc.value="detail_img";
+				attid.value=temp[1];
+				node.setAttributeNode(attc);
+				node.setAttributeNode(attid);
+				document.getElementById('body_main').appendChild(node);
+
+				var img=snapshot.child('P_Image').val();
+				var inode=document.createElement("IMG");
+				var src=document.createAttribute("src");
+				src.value=img;
+				inode.setAttributeNode(src);
+				var aid=temp[1];
+				document.getElementById(aid).appendChild(inode);
+
+
+				// ---con---
+				var node2=document.createElement("DIV");
+				var node2_class=document.createAttribute("class");
+				var node2_id=document.createAttribute("id");
+				node2_class.value="detail_con"
+				node2_id.value="detail_con_"+temp[1];
+				node2.setAttributeNode(node2_class);
+				node2.setAttributeNode(node2_id);
+				document.getElementById('body_main').appendChild(node2);
+
+				var name=snapshot.child('P_Name').val();
+				var node_h4=document.createElement("H4")
+				var t =document.createTextNode(name);
+				node_h4.appendChild(t);
+				
+				var price=snapshot.child('P_Price').val();
+				var s=document.createElement("SPAN");
+				var sid=document.createAttribute("id");
+				sid.value="NT";
+				var p =document.createTextNode('NT$'+price);
+				s.setAttributeNode(sid);
+				s.appendChild(p);
+
+				var detail_p =snapshot.child('P_Description').val();
+				var dp = document.createElement("P");
+				var pp=document.createTextNode(detail_p);
+				dp.appendChild(pp);
+
+
+				var s2=document.createElement("SPAN");
+				var sid2=document.createAttribute("id");
+				sid2.value="num";
+				var p2 =document.createTextNode("購買數量 :");
+				s2.setAttributeNode(sid2);
+				s2.appendChild(p2);
+
+				var ip=document.createElement("INPUT");
+				var ty=document.createAttribute("type");
+				ty.value="number";
+				ip.setAttributeNode(ty);
+
+				var ac =document.createElement("A");
+				var href =document.createAttribute("href");
+				var ct=document.createAttribute("class");
+				var sd =document.createTextNode("加入購物車");
+				href.value="#";
+				ct.value="cart";
+				ac.setAttributeNode(href);
+				ac.setAttributeNode(ct);
+				ac.appendChild(sd);
+
+
+
+
+
+
+
+
+
+
+
+				var hid="detail_con_"+temp[1];
+				document.getElementById(hid).appendChild(node_h4);
+				document.getElementById(hid).appendChild(s);
+				document.getElementById(hid).appendChild(dp);
+				document.getElementById(hid).appendChild(s2);
+				document.getElementById(hid).appendChild(ip);
+				document.getElementById(hid).appendChild(ac);
+
+
+
+
+
+						// var name=snapshot.child('P_Name').val();
+						// var node=document.createElement("DIV");
+						// var c=document.createAttribute("class");
+						// c.value="goods_name";
+						// var h=document.createElement("H3");
+						// var t=document.createTextNode(name);
+						// h.appendChild(t);
+					// var node2=document.createElement("DIV");
+					// var att2=document.createAttribute("class");
+					// var img=document.createElement("IMG")
+								// var attid=document.createAttribute("id");
+								// var attid=document.createAttribute("id");
+								// var a=document.createElement("A");
+								// var href=document.createAttribute("href");
+								// attc.value="detail_img";
+								// attid.value=temp[1];
+								// att2.value="detail_con";
+								// attid.value="good"+i;
+								// aid.value=temp[1];
+								// href.value="goodsdetail.html"+"?"+"Product_"+i;
+								// a.setAttributeNode(href);
+								// a.setAttributeNode(aid);
+								// node.setAttributeNode(attid);
+								// node.setAttributeNode(attc);
+								// node.setAttributeNode(attid);
+								// node2.setAttributeNode(att2);
+								// node.appendChild(a);
+								// document.getElementById('body_main').appendChild(node);
+								// document.getElementById('body_main').appendChild(node2);
+								
+
+
+					
+						// var img=snapshot.child('P_Image').val();
+						// var inode=document.createElement("IMG");
+						// var src=document.createAttribute("src");
+						// src.value=img;
+						// inode.setAttributeNode(src);
+						// var aid=temp[1];
+						// document.getElementById(aid).appendChild(inode);
+						//name&price
+						// var name=snapshot.child('P_Name').val();
+						// var node=document.createElement("DIV");
+						// var c=document.createAttribute("class");
+						// c.value="goods_name";
+						// var h=document.createElement("H3");
+						// var t=document.createTextNode(name);
+						// h.appendChild(t);
+
+						// var price=("NT"+snapshot.child('P_Price').val());
+						// var sp=document.createElement("SPAN");
+						// var pricet=document.createTextNode(price);
+						// sp.appendChild(pricet);
+						// node.setAttributeNode(c);
+						// node.appendChild(h);
+						// node.appendChild(sp);
+						// document.getElementById(aid).appendChild(node);
+					
+					
+			});
+	
+   }
+ 
+
+
