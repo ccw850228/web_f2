@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css\style.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src='js\all.js'></script>
+	
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+	<script>
+	  firebase.initializeApp(config);
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+			<div class="headerlogo1">
+				<img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/12888674_641166666022602_8845148715942982024_o.png?oh=378a420158b9af671e12c9ea3c169677&oe=59A64CEB">
+			</div>
+			<div class="headerlist">
+				<ul>
+					<li id="headerCart"><a href="#" >購物車</a></li>
+					<li id="headerLogin"><a href="#"onClick="login()">登入</a></li>
+					<li id="headerLogout"><a href="#"onClick="logout()">登出</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="index_body">
+			<div class="category">
+				<ul class="list">
+					<li><a href="goodslist.html?1">全部</a></li>
+					<li><a href="goodslist.html?2">肉乾系列</a></li>
+					<li><a href="goodslist.html?3">杏仁肉乾脆片</a></l>
+					<li><a href="goodslist.html?4">虱目魚肉乾脆片</a></li>
+					
+					</ul>
+			</div>
+
+			<div class="body_main">
+
+
+				<div id="new_arrival">
+					<ul class="lists">
+						<li><a href="#"><img alt="好吃" src="img/baguan1.jpg" /></a></li>
+						<li><a href="#"><img alt="很好吃" src="img/baguan2.jpg" /></a></li>
+						<li><a href="#"><img alt="超好吃" src="img/baguan3.jpg" /></a></li>
+						<li><a href="#"><img alt="女子口乞" src="img/baguan4.jpg" /></a></li>
+						
+					</ul>
+				</div>
+
+				
+				<div class="hot">
+
+					<span id="hhh">熱銷區</span>
+
+				<div class="goods">
+						<a href="#">
+						<img src="#" alt="">
+
+					<div class="goods_name">
+						<h3>
+							杏仁肉乾脆片
+						</h3>
+						
+						<span>NT200</span>
+						</a>	
+					</div>
+				</div>
+
+				<div class="goods">
+						<a href="#">
+						<img src="#" alt="">
+
+					<div class="goods_name">
+						<h3>
+							杏仁肉乾脆片
+						</h3>
+						
+						<span>NT200</span>
+						</a>	
+					</div>
+				</div>
+
+				<div class="goods">
+						<a href="#">
+						<img src="#" alt="">
+
+					<div class="goods_name">
+						<h3>
+							杏仁肉乾脆片
+						</h3>
+						
+						<span>NT200</span>
+						</a>	
+					</div>
+				</div>
+
+
+				</div>
+
+			</div>
+
+		</div>
+	 <div class="footer">
+
+		 	<h6>咁有假侯家 © 2017 ba guan, Inc. 保留所有權利
+			</h6>
+
+
+
+		 </div>	
+
+
+	</div>
+</body>
+</html>
