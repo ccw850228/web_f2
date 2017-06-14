@@ -70,9 +70,22 @@ function changeheader(name,img){
 	document.getElementById('headerLogin').innerHTML='<a href="#"><img src="'+img+'">'+name+'</a>';
 }
 
-function ListGoods(page){
-	switch(page){
-		case 1:
+function ListGoods(){
+	var url = location.search;
+     
+    //取得問號之後的值
+    var temp = url.split("?");
+ 
+  	 console.log(temp[1]);
+
+  	 var type = temp[1];
+  		
+  	console.log(type);
+
+
+	switch(type){
+		case "1":
+		alert('hi');
 			var Ref=firebase.database().ref('/Product/');
 			//get Item Num
 			Ref.on("value",function(snapshot){
@@ -130,12 +143,12 @@ function ListGoods(page){
 			});
 				
 			break;
-		case 2:
+		case "2":
 			break;
-		case 3:
+		case "3":
 			
 			break;
-		case 4:
+		case "4":
 			break;
 			}
 }
