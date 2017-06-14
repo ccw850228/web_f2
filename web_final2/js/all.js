@@ -70,22 +70,9 @@ function changeheader(name,img){
 	document.getElementById('headerLogin').innerHTML='<a href="#"><img src="'+img+'">'+name+'</a>';
 }
 
-function ListGoods(){
-	var url = location.search;
-     
-    //取得問號之後的值
-    var temp = url.split("?");
- 
-  	 console.log(temp[1]);
-
-  	 var type = temp[1];
-  		
-  	console.log(type);
-
-
-	switch(type){
+function ListGoods(page){
+	switch(page){
 		case "1":
-		alert('hi');
 			var Ref=firebase.database().ref('/Product/');
 			//get Item Num
 			Ref.on("value",function(snapshot){
