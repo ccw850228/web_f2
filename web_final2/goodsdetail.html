@@ -4,8 +4,29 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="css/style.css">
+	<script src='js\all.js'></script>
+
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+	<script>
+	  firebase.initializeApp(config);
+	</script>
+<!-- 
+	<script>
+		$(document).ready(function(){
+			show();
+		});
+	</script>
+ -->
+
 </head>
-<body>
+<body onload="show()">
+	
+
+
 	<div class="wrap">
 		<div class="header"></div>
 		<div class="index_body">
@@ -20,8 +41,9 @@
 					</ul>
 			</div>
 
-			<div class="body_main">
-				<div class="detail_img">
+			<div class="body_main" id="body_main">
+
+				<!-- <div class="detail_img">
 					<img src="" alt="">
 				</div>
 				
@@ -52,7 +74,9 @@
 
 
 
-				</div>
+				</div> -->
+				
+			
 				
 			</div>
 
