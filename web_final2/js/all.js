@@ -131,11 +131,169 @@ function ListGoods(page){
 				
 			break;
 		case "2":
+			var Ref=firebase.database().ref('/Product/');
+			Ref.orderByChild("P_Type").equalTo(1).on("child_added",function(snapshot){
+					var key=snapshot.key;
+					var temp=key.split("_");
+					var i=temp[1];
+					
+					var node=document.createElement("DIV");
+					var att=document.createAttribute("class");
+					var attid=document.createAttribute("id");
+					var aid=document.createAttribute("id");
+					var a=document.createElement("A");
+					var href=document.createAttribute("href");
+					att.value="goods";
+					attid.value="good"+i;
+					aid.value="a"+i;
+					href.value="goodsdetail.html"+"?"+"Product_"+i;
+					a.setAttributeNode(href);
+					a.setAttributeNode(aid);
+					node.setAttributeNode(attid);
+					node.setAttributeNode(att);
+					node.appendChild(a);
+					document.getElementById('body_main').appendChild(node);
+
+					var Ref=firebase.database().ref('/Product/Product_'+i);
+					Ref.on('value',function(snapshot){
+						//a
+						//img
+						var img=snapshot.child('P_Image').val();
+						var node=document.createElement("IMG");
+						var src=document.createAttribute("src");
+						src.value=img;
+						node.setAttributeNode(src);
+						var aid="a"+i;
+						document.getElementById(aid).appendChild(node);
+						//name&price
+						var name=snapshot.child('P_Name').val();
+						var node=document.createElement("DIV");
+						var c=document.createAttribute("class");
+						c.value="goods_name";
+						var h=document.createElement("H3");
+						var t=document.createTextNode(name);
+						h.appendChild(t);
+
+						var price=("NT"+snapshot.child('P_Price').val());
+						var sp=document.createElement("SPAN");
+						var pricet=document.createTextNode(price);
+						sp.appendChild(pricet);
+						node.setAttributeNode(c);
+						node.appendChild(h);
+						node.appendChild(sp);
+						document.getElementById(aid).appendChild(node);
+					});
+			});
 			break;
 		case "3":
-			
+			var Ref=firebase.database().ref('/Product/');
+			Ref.orderByChild("P_Type").equalTo(2).on("child_added",function(snapshot){
+					var key=snapshot.key;
+					var temp=key.split("_");
+					var i=temp[1];
+					
+					var node=document.createElement("DIV");
+					var att=document.createAttribute("class");
+					var attid=document.createAttribute("id");
+					var aid=document.createAttribute("id");
+					var a=document.createElement("A");
+					var href=document.createAttribute("href");
+					att.value="goods";
+					attid.value="good"+i;
+					aid.value="a"+i;
+					href.value="goodsdetail.html"+"?"+"Product_"+i;
+					a.setAttributeNode(href);
+					a.setAttributeNode(aid);
+					node.setAttributeNode(attid);
+					node.setAttributeNode(att);
+					node.appendChild(a);
+					document.getElementById('body_main').appendChild(node);
+					
+					var Ref=firebase.database().ref('/Product/Product_'+i);
+					Ref.on('value',function(snapshot){
+						//a
+						//img
+						var img=snapshot.child('P_Image').val();
+						var node=document.createElement("IMG");
+						var src=document.createAttribute("src");
+						src.value=img;
+						node.setAttributeNode(src);
+						var aid="a"+i;
+						document.getElementById(aid).appendChild(node);
+						//name&price
+						var name=snapshot.child('P_Name').val();
+						var node=document.createElement("DIV");
+						var c=document.createAttribute("class");
+						c.value="goods_name";
+						var h=document.createElement("H3");
+						var t=document.createTextNode(name);
+						h.appendChild(t);
+
+						var price=("NT"+snapshot.child('P_Price').val());
+						var sp=document.createElement("SPAN");
+						var pricet=document.createTextNode(price);
+						sp.appendChild(pricet);
+						node.setAttributeNode(c);
+						node.appendChild(h);
+						node.appendChild(sp);
+						document.getElementById(aid).appendChild(node);
+					});
+			});
 			break;
 		case "4":
+		var Ref=firebase.database().ref('/Product/');
+			Ref.orderByChild("P_Type").equalTo(3).on("child_added",function(snapshot){
+					var key=snapshot.key;
+					var temp=key.split("_");
+					var i=temp[1];
+					
+					var node=document.createElement("DIV");
+					var att=document.createAttribute("class");
+					var attid=document.createAttribute("id");
+					var aid=document.createAttribute("id");
+					var a=document.createElement("A");
+					var href=document.createAttribute("href");
+					att.value="goods";
+					attid.value="good"+i;
+					aid.value="a"+i;
+					href.value="goodsdetail.html"+"?"+"Product_"+i;
+					a.setAttributeNode(href);
+					a.setAttributeNode(aid);
+					node.setAttributeNode(attid);
+					node.setAttributeNode(att);
+					node.appendChild(a);
+					document.getElementById('body_main').appendChild(node);
+					
+					var Ref=firebase.database().ref('/Product/Product_'+i);
+					Ref.on('value',function(snapshot){
+						//a
+						//img
+						var img=snapshot.child('P_Image').val();
+						var node=document.createElement("IMG");
+						var src=document.createAttribute("src");
+						src.value=img;
+						node.setAttributeNode(src);
+						var aid="a"+i;
+						document.getElementById(aid).appendChild(node);
+						//name&price
+						var name=snapshot.child('P_Name').val();
+						var node=document.createElement("DIV");
+						var c=document.createAttribute("class");
+						c.value="goods_name";
+						var h=document.createElement("H3");
+						var t=document.createTextNode(name);
+						h.appendChild(t);
+
+						var price=("NT"+snapshot.child('P_Price').val());
+						var sp=document.createElement("SPAN");
+						var pricet=document.createTextNode(price);
+						sp.appendChild(pricet);
+						node.setAttributeNode(c);
+						node.appendChild(h);
+						node.appendChild(sp);
+						document.getElementById(aid).appendChild(node);
+					});
+			});
 			break;
 			}
 }
