@@ -465,7 +465,7 @@ function PutCart(){
 		//check if login
 		var name = user.displayName;
 		var uid = user.uid;
-		alert("name:"name+",uid:"+uid);
+		alert("name:"+name+",uid:"+uid);
 		if(user){
 			var url = location.search;
     		var temp = url.split("?");
