@@ -469,11 +469,13 @@ function PutCart(){
   			var Buy_Num=document.getElementById('Buy_Num').value;
   			if(Buy_Num==""){
   				alert('請輸入數字');
+  				break;
   			}else{
   				alert(Buy_Num);
   			}
 		}else{
 			alert("請先登入");
+			break;
 		}
 	});
 }
