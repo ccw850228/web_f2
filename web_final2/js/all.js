@@ -508,15 +508,18 @@ function PutCart(){
 }
 
 function ShowCart(){
-	var uid =user.uid;
-	alert(uid);
-	var database=firebase.database().ref('Cart/');
-	alert(database);
-	database.once('value',function(snapshot){
-		if(snapshot.hasChild(uid)){
-			alert("有資料喔");
-		}else{
-			alert("梅資料喔");
-		}
+	firebase.auth().onAuthStateChanged(function(user) {
+		var uid =user.uid;
+		alert(uid);
+		var database=firebase.database().ref('Cart/');
+		alert(database);
+		database.once('value',function(snapshot){
+			if(snapshot.hasChild(uid)){
+				alert("有資料喔");
+			}else{
+				alert("梅資料喔");
+			}
+	});
+
 	});
 }
