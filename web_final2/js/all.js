@@ -485,9 +485,9 @@ function PutCart(){
     					Buy_Product : Buy_Item,
     					Buy_Num:Buy_Num
     				};
-    				var newPostKey=firebase.database().ref().child('Cart/').push().key;
+    				//var newPostKey=firebase.database().ref().child('Cart/').push().key;
     				var updates={};
-    				updates['/Cart/'+uid+'/'+newPostKey]=postData;
+    				updates['/Cart/'+uid+'/'+currentDateTime]=postData;
     				return firebase.database().ref().update(updates);
 
     			}else{
@@ -495,9 +495,9 @@ function PutCart(){
     					Buy_Product : Buy_Item,
     					Buy_Num:Buy_Num
     				};
-    				var newPostKey=firebase.database().ref().child('Cart/').push().key;
+    				//var newPostKey=firebase.database().ref().child('Cart/').push().key;
     				var updates={};
-    				updates['/Cart/'+uid+'/'+newPostKey]=postData;
+    				updates['/Cart/'+uid+'/'+currentDateTime]=postData;
     				return firebase.database().ref().update(updates);
     		}
    	 		
@@ -587,6 +587,10 @@ function ShowCart(){
 	});
 }
 
-function deleteCart(test){
-	alert(test);
+function deleteCart(key){
+	firebase.auth().onAuthStateChanged(function(user) {
+		var uid=user.uid;
+		var ref=firebase.database().ref('Cart/'+uid+'/');
+		ref.child(key).remove();
+		});
 }
