@@ -566,12 +566,10 @@ function ShowCart(){
 							document.getElementById('CartTable').appendChild(tr);
 							
 							Total=Total+P_Price;
-							
-
-
+							document.getElementById('All_Price').innerHTML="總價格:NT$"+Total;
 						});
 					});
-					document.getElementById('All_Price').innerHTML="總價格:NT$"+Total;
+					
 				});
 			}else{
 				alert("目前沒有資料喔");
