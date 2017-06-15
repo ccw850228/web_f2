@@ -549,7 +549,7 @@ function ShowCart(){
 							var A=document.createElement("A");
 							var href=document.createAttribute("href");
 							var onclick=document.createAttribute("onclick");
-							onclick.value="deleteCart("+P_Num+")";
+							onclick.value="deleteCart("+key+")";
 							href.value="#";
 							A.setAttributeNode(href);
 							A.setAttributeNode(onclick);
