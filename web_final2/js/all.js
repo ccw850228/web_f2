@@ -481,6 +481,16 @@ function PutCart(){
 				var usersRef=database.ref('Cart/');
 				usersRef.once('value', function(snapshot) {
     			if(snapshot.hasChild(uid)){
+    				var postData={
+    					Buy_Product : Buy_Item,
+    					Buy_Num:Buy_Num
+    				};
+
+    				var NewCartKey=firebase.database().ref().child('Cart').push().key;
+    				alert(NewCartKey);
+    				var updates={};
+    				updates['/Cart/'+NewCartKey]=postData;
+    				return firebase.database().ref().update(updates);
     				
     			}else{
     				var postData={
