@@ -510,14 +510,16 @@ function PutCart(){
 function ShowCart(){
 	firebase.auth().onAuthStateChanged(function(user) {
 		var uid =user.uid;
-		alert(uid);
 		var database=firebase.database().ref('Cart/');
-		alert(database);
 		database.once('value',function(snapshot){
 			if(snapshot.hasChild(uid)){
-				alert("有資料喔");
+				var Ref=firebase.database().ref('Cart/'+uid+'/');
+				Ref.on("value",function(snapshot){
+				var num=snapshot.numChildren();
+				alert(num);
+				});
 			}else{
-				alert("梅資料喔");
+				alert("目前沒有資料喔");
 			}
 	});
 
