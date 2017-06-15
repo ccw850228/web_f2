@@ -519,7 +519,7 @@ function ShowCart(){
 						var P_No=childSnapshot.child('Buy_Product').val();
 						var P_Num=childSnapshot.child('Buy_Num').val();
 						var P_Ref=firebase.database().ref('Product/'+P_No+'/');
-						Ref.on("value",function(snapshot){
+						P_Ref.on("value",function(snapshot){
 							var P_Name=snapshot.child('P_Name').val();
 							var P_Price=snapshot.child('P_Price').val();
 							alert(P_No);
