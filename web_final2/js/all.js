@@ -486,7 +486,7 @@ function PutCart(){
     					Buy_Num:Buy_Num
     				};
 
-    				var NewCartKey=firebase.database().ref('Cart/').child(uid).push().key;
+    				var NewCartKey=firebase.database().ref('Cart/'+uid+'/').push().key;
     				var updates={};
     				updates['/Cart/'+NewCartKey]=postData;
     				return firebase.database().ref().update(updates);
