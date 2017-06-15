@@ -483,11 +483,20 @@ function PutCart(){
     			if(snapshot.hasChild(uid)){
     				
     			}else{
-  					database.ref('Cart/'+uid+'/'+currentDateTime+'/').set({
+    				var postData={
+    					Buy_Product : Buy_Item,
+    					Buy_Num:Buy_Num
+    				};
+
+    				var NewCartKey=firebase.database().ref().child('Cart').push().key;
+    				var updates={};
+    				updates['/Cart/'+NewCartKey]=postData;
+
+  					/*database.ref('Cart/'+uid+'/'+currentDateTime+'/').set({
   						Buy_Product: Buy_Item,
   						Buy_Num: Buy_Num	
 
-  			});
+  			});*/
     		}
    	 		
   		});
