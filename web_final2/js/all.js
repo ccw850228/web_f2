@@ -476,5 +476,6 @@ function PutCart(){
 			alert("請先登入");
 		}
 	});
+	break;
 }
 
