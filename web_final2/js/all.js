@@ -367,14 +367,8 @@ function show() {
 	
 
     var url = location.search;
-     
     //取得問號之後的值
     var temp = url.split("?");
- 
-  	 console.log(temp[1]);
-
-
-
 	var Ref=firebase.database().ref('/Product/'+temp[1]);
 			//get Item Num
 			Ref.on("value",function(snapshot){
@@ -434,29 +428,25 @@ function show() {
 				s2.appendChild(p2);
 
 				var ip=document.createElement("INPUT");
+				var Buy_Num=document.createAttribute("id");
 				var ty=document.createAttribute("type");
+				Buy_Num.value="Buy_Num";
 				ty.value="number";
 				ip.setAttributeNode(ty);
+				ip.setAttributeNode(Buy_Num);
 
 				var ac =document.createElement("A");
+				var onclick=document.createAttribute("onClick");
 				var href =document.createAttribute("href");
 				var ct=document.createAttribute("class");
 				var sd =document.createTextNode("加入購物車");
+				onclick.value="PutCart()";
 				href.value="#";
 				ct.value="cart";
+				ac.setAttributeNode(onclick);
 				ac.setAttributeNode(href);
 				ac.setAttributeNode(ct);
 				ac.appendChild(sd);
-
-
-
-
-
-
-
-
-
-
 
 				var hid="detail_con_"+temp[1];
 				document.getElementById(hid).appendChild(node_h4);
@@ -466,72 +456,25 @@ function show() {
 				document.getElementById(hid).appendChild(ip);
 				document.getElementById(hid).appendChild(ac);
 
-
-
-
-
-						// var name=snapshot.child('P_Name').val();
-						// var node=document.createElement("DIV");
-						// var c=document.createAttribute("class");
-						// c.value="goods_name";
-						// var h=document.createElement("H3");
-						// var t=document.createTextNode(name);
-						// h.appendChild(t);
-					// var node2=document.createElement("DIV");
-					// var att2=document.createAttribute("class");
-					// var img=document.createElement("IMG")
-								// var attid=document.createAttribute("id");
-								// var attid=document.createAttribute("id");
-								// var a=document.createElement("A");
-								// var href=document.createAttribute("href");
-								// attc.value="detail_img";
-								// attid.value=temp[1];
-								// att2.value="detail_con";
-								// attid.value="good"+i;
-								// aid.value=temp[1];
-								// href.value="goodsdetail.html"+"?"+"Product_"+i;
-								// a.setAttributeNode(href);
-								// a.setAttributeNode(aid);
-								// node.setAttributeNode(attid);
-								// node.setAttributeNode(attc);
-								// node.setAttributeNode(attid);
-								// node2.setAttributeNode(att2);
-								// node.appendChild(a);
-								// document.getElementById('body_main').appendChild(node);
-								// document.getElementById('body_main').appendChild(node2);
-								
-
-
-					
-						// var img=snapshot.child('P_Image').val();
-						// var inode=document.createElement("IMG");
-						// var src=document.createAttribute("src");
-						// src.value=img;
-						// inode.setAttributeNode(src);
-						// var aid=temp[1];
-						// document.getElementById(aid).appendChild(inode);
-						//name&price
-						// var name=snapshot.child('P_Name').val();
-						// var node=document.createElement("DIV");
-						// var c=document.createAttribute("class");
-						// c.value="goods_name";
-						// var h=document.createElement("H3");
-						// var t=document.createTextNode(name);
-						// h.appendChild(t);
-
-						// var price=("NT"+snapshot.child('P_Price').val());
-						// var sp=document.createElement("SPAN");
-						// var pricet=document.createTextNode(price);
-						// sp.appendChild(pricet);
-						// node.setAttributeNode(c);
-						// node.appendChild(h);
-						// node.appendChild(sp);
-						// document.getElementById(aid).appendChild(node);
-					
-					
 			});
 	
    }
  
-
+function PutCart(){
+	firebase.auth().onAuthStateChanged(function(user) {
+		if(user){
+			var url = location.search;
+    		var temp = url.split("?");
+  			var BuyItem=temp[1];
+  			var Buy_Num=document.getElementById('Buy_Num').value;
+  			if(Buy_Num==""){
+  				alert('請輸入數字');
+  			}else{
+  				alert(Buy_Num);
+  			}
+		}else{
+			alert("請先登入");
+		}
+	});
+}
 
