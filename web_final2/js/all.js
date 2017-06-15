@@ -549,7 +549,7 @@ function ShowCart(){
 							var A=document.createElement("A");
 							var href=document.createAttribute("href");
 							var onclick=document.createAttribute("onclick");
-							onclick.value="deleteCart()";
+							onclick.value="deleteCart("+P_Num+")";
 							href.value="#";
 							A.setAttributeNode(href);
 							A.setAttributeNode(onclick);
@@ -585,6 +585,6 @@ function ShowCart(){
 	});
 }
 
-function deleteCart(){
-	alert("123");
+function deleteCart(test){
+	alert(test);
 }
