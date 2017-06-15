@@ -518,6 +518,8 @@ function ShowCart(){
 					snapshot.forEach(function(childSnapshot){
 						var P_Name=childSnapshot.child('Buy_Product');
 						var P_Num=childSnapshot.child('Buy_Num');
+						alert(P_Name);
+						alert(P_Num);
 					});
 				});
 			}else{
