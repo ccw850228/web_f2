@@ -517,6 +517,7 @@ function ShowCart(){
 				var Ref=firebase.database().ref('Cart/'+uid+'/');
 				Ref.on("value",function(snapshot){
 					snapshot.forEach(function(childSnapshot){
+						var key=childSnapshot.key;
 						var P_No=childSnapshot.child('Buy_Product').val();
 						var P_Num=childSnapshot.child('Buy_Num').val();
 						var P_Ref=firebase.database().ref('Product/'+P_No+'/');
@@ -545,6 +546,13 @@ function ShowCart(){
 							td4.appendChild(td4_text);
 
 							var td5=document.createElement("td");
+							var A=document.createElement("A");
+							var href=document.createAttribute("href");
+							var onclick=document.createAttribute("onclick");
+							onclick.value="delete("+key+")";
+							href.value="#";
+							A.setAttributeNode(href);
+							A.setAttributeNode(onclick);
 							var image=document.createElement('img');
 							var src=document.createAttribute('src');
 							src.value=('img/delete.png');
@@ -552,7 +560,8 @@ function ShowCart(){
 							id.value=('xxx');
 							image.setAttributeNode(id);
 							image.setAttributeNode(src);
-							td5.appendChild(image);
+							A.appendChild(image);
+							td5.appendChild(A);
 
 							tr.appendChild(td1);
 							tr.appendChild(td2);
@@ -574,4 +583,8 @@ function ShowCart(){
 	});
 
 	});
+}
+
+function deleteCart(No){
+	alert(No);
 }
