@@ -565,7 +565,7 @@ function ShowCart(){
 							document.getElementById('CartTable').appendChild(tr);
 							var Total;
 							Total=Total+P_Price;
-							document.getElementById('All_Price').innerHTML("總價格:NT$"+Total);
+							document.getElementById('All_Price').innerHTML="總價格:NT$"+Total;
 
 
 						});
