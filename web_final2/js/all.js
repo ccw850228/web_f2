@@ -516,8 +516,8 @@ function ShowCart(){
 				var Ref=firebase.database().ref('Cart/'+uid+'/');
 				Ref.on("value",function(snapshot){
 					snapshot.forEach(function(childSnapshot){
-						var P_Name=childSnapshot.child(Buy_Product);
-						var P_Num=childSnapshot.child(Buy_Num);
+						var P_Name=childSnapshot.child('Buy_Product');
+						var P_Num=childSnapshot.child('Buy_Num');
 					});
 				});
 			}else{
