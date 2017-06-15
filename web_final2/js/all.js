@@ -485,8 +485,9 @@ function PutCart(){
     					Buy_Product : Buy_Item,
     					Buy_Num:Buy_Num
     				};
+    				var newPostKey=firebase.database().ref().child('Cart/').push().key;
     				var updates={};
-    				updates['/Cart/'+uid+'/'+currentDateTime]=postData;
+    				updates['/Cart/'+uid+'/'+newPostKey]=postData;
     				return firebase.database().ref().update(updates);
 
     			}else{
@@ -494,8 +495,9 @@ function PutCart(){
     					Buy_Product : Buy_Item,
     					Buy_Num:Buy_Num
     				};
+    				var newPostKey=firebase.database().ref().child('Cart/').push().key;
     				var updates={};
-    				updates['/Cart/'+uid+'/'+currentDateTime]=postData;
+    				updates['/Cart/'+uid+'/'+newPostKey]=postData;
     				return firebase.database().ref().update(updates);
     		}
    	 		
