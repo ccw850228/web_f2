@@ -483,11 +483,10 @@ function PutCart(){
     			if(snapshot.hasChild(uid)){
     				
     			}else{
-  					database.ref('Cart/'+uid+'/').set({
-  					currentDateTime:{
+  					database.ref('Cart/'+uid+'/'+currentDateTime+'/').set({
   						Buy_Product: Buy_Item,
   						Buy_Num: Buy_Num	
-  											}	
+
   			});
     		}
    	 		
