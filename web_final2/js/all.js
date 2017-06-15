@@ -462,20 +462,34 @@ function show() {
  
 function PutCart(){
 	firebase.auth().onAuthStateChanged(function(user) {
+		//check if login
 		if(user){
 			var url = location.search;
     		var temp = url.split("?");
   			var BuyItem=temp[1];
   			var Buy_Num=document.getElementById('Buy_Num').value;
+  			//check if input==null
   			if(Buy_Num==""){
   				alert('請輸入數字');
-  				break PutCart;
   			}else{
   				alert(Buy_Num);
+  			
+  				var database=firebase.database();
+				var usersRef=database.ref('Cart/');
+				usersRef.once('value', function(snapshot) {
+    			if(snapshot.hasChild(uid)){
+    				
+    			}else{
+  					database.ref('Cart/'+uid+'/').set({
+  						Buy_Product: Buy_Item,
+  						Buy_Num: Buy_Num		
+  			});
+    		}
+   	 		
+  		});
   			}
 		}else{
 			alert("請先登入");
-			break PutCart;
 		}
 	});
 }
