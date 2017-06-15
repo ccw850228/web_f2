@@ -593,4 +593,5 @@ function deleteCart(key){
 		var ref=firebase.database().ref('Cart/'+uid+'/');
 		ref.child(key).remove();
 		});
+		location.reload();
 }
