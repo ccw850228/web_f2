@@ -516,10 +516,17 @@ function ShowCart(){
 				var Ref=firebase.database().ref('Cart/'+uid+'/');
 				Ref.on("value",function(snapshot){
 					snapshot.forEach(function(childSnapshot){
-						var P_Name=childSnapshot.child('Buy_Product').val();
+						var P_No=childSnapshot.child('Buy_Product').val();
 						var P_Num=childSnapshot.child('Buy_Num').val();
-						alert(P_Name);
-						alert(P_Num);
+						var P_Ref=firebase.database().ref('Product/');
+						Ref.orderBykey().equalTo(P_No).on("value",function(snapshot){
+							var P_Name=snapshot.child('P_Name').val();
+							var P_Price=snapshot.child('P_Price').val();
+							alert(P_No);
+							alert(P_Num);
+							alert(P_Name);
+							alert(P_Price);
+						});
 					});
 				});
 			}else{
