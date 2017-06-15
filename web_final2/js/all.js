@@ -464,6 +464,8 @@ function PutCart(){
 	firebase.auth().onAuthStateChanged(function(user) {
 		//check if login
 		var uid = user.uid;
+		var today=new Date();
+		var currentDateTime =today.getFullYear()+'年'+(today.getMonth()+1)+'月'+today.getDate()+'日'+today.getHours()+'時'+today.getMinutes()+'分'+today.getSeconds()+'秒';
 		if(user){
 			var url = location.search;
     		var temp = url.split("?");
@@ -482,8 +484,10 @@ function PutCart(){
     				
     			}else{
   					database.ref('Cart/'+uid+'/').set({
+  					currentDateTime:{
   						Buy_Product: Buy_Item,
-  						Buy_Num: Buy_Num		
+  						Buy_Num: Buy_Num	
+  											}	
   			});
     		}
    	 		
