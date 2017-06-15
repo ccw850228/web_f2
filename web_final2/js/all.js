@@ -526,6 +526,46 @@ function ShowCart(){
 							alert(P_Num);
 							alert(P_Name);
 							alert(P_Price);
+							//html
+							var tr=document.createElement("tr");
+
+							var td1=document.createElement("td");
+							var td1_text =document.createTextNode(P_Name);
+							td1.appendChild(td1_text);
+
+							var td2=document.createElement("td");
+							var td2_text =document.createTextNode("NT$"+P_Price);
+							td2.appendChild(td2_text);
+
+							var td3=document.createElement("td");
+							var td3_text =document.createTextNode(P_Num);
+							td3.appendChild(td3_text);
+
+							var td4=document.createElement("td");
+							var t=P_Price*P_Num;
+							var td4_text =document.createTextNode(t);
+							td4.appendChild(td4_text);
+
+							var td5=document.createElement("td");
+							var image=document.createElement('img');
+							var src=document.createAttribute('src');
+							src.value=('img/delete.png');
+							var id=document.createAttribute('id');
+							id.value=('xxx');
+							image.setAttributeNode(id);
+							image.setAttributeNode(src);
+							td5.appendChild(image);
+
+							tr.appendChild(td1);
+							tr.appendChild(td2);
+							tr.appendChild(td3);
+							tr.appendChild(td4);
+							tr.appendChild(td5);
+							
+							document.getElementById('CartTable').appendChild(tr);
+							
+
+
 						});
 					});
 				});
