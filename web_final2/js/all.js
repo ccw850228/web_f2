@@ -21,7 +21,6 @@ $( document ).ready(function() {
 });
 
 function login(){
-	window.location.reload();
 	var provider = new firebase.auth.FacebookAuthProvider();
 	provider.setCustomParameters({
 	  'display': 'popup'
