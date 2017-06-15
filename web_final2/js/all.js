@@ -486,28 +486,13 @@ function PutCart(){
     					Buy_Num:Buy_Num
     				};
 
-    				var NewCartKey=firebase.database().ref().child('Cart').push().key;
-    				alert(NewCartKey);
+    				var NewCartKey=firebase.database().ref('Cart/').child(uid).push().key;
     				var updates={};
     				updates['/Cart/'+NewCartKey]=postData;
     				return firebase.database().ref().update(updates);
-    				
+
     			}else{
-    				var postData={
-    					Buy_Product : Buy_Item,
-    					Buy_Num:Buy_Num
-    				};
-
-    				var NewCartKey=firebase.database().ref().child('Cart').push().key;
-    				alert(NewCartKey);
-    				var updates={};
-    				updates['/Cart/'+NewCartKey]=postData;
-    				return firebase.database().ref().update(updates);
-  					/*database.ref('Cart/'+uid+'/'+currentDateTime+'/').set({
-  						Buy_Product: Buy_Item,
-  						Buy_Num: Buy_Num	
-
-  			});*/
+  					
     		}
    	 		
   		});
