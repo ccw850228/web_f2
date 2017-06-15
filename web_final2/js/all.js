@@ -510,6 +510,7 @@ function PutCart(){
 function ShowCart(){
 	firebase.auth().onAuthStateChanged(function(user) {
 		var uid =user.uid;
+		var Total=0;
 		var database=firebase.database().ref('Cart/');
 		database.once('value',function(snapshot){
 			if(snapshot.hasChild(uid)){
@@ -563,13 +564,14 @@ function ShowCart(){
 							tr.appendChild(td5);
 
 							document.getElementById('CartTable').appendChild(tr);
-							var Total;
+							
 							Total=Total+P_Price;
-							document.getElementById('All_Price').innerHTML="總價格:NT$"+Total;
+							
 
 
 						});
 					});
+					document.getElementById('All_Price').innerHTML="總價格:NT$"+Total;
 				});
 			}else{
 				alert("目前沒有資料喔");
