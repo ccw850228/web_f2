@@ -475,7 +475,7 @@ function PutCart(){
   			if(Buy_Num==""){
   				alert('請輸入數字');
   			}else{
-  				alert(Buy_Num);
+  				alert("已放入購物車!");
   			
   				var database=firebase.database();
 				var usersRef=database.ref('Cart/');
