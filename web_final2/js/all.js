@@ -523,10 +523,7 @@ function ShowCart(){
 						P_Ref.on("value",function(snapshot){
 							var P_Name=snapshot.child('P_Name').val();
 							var P_Price=snapshot.child('P_Price').val();
-							alert(P_No);
-							alert(P_Num);
-							alert(P_Name);
-							alert(P_Price);
+							
 							//html
 							var tr=document.createElement("tr");
 
