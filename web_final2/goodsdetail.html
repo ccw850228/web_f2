@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css\style.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 	<script src='js\all.js'></script>
-
 	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-database.js"></script>
@@ -28,7 +27,20 @@
 
 
 	<div class="wrap">
-		<div class="header"></div>
+
+		<div class="header">
+			<div class="headerlogo1">
+				<a href="index.html"><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/12888674_641166666022602_8845148715942982024_o.png?oh=378a420158b9af671e12c9ea3c169677&oe=59A64CEB" ></a>	
+			</div>
+			<div class="headerlist">
+				<ul>
+					<li id="headerCart"><a href="#">購物車</a></li>
+					<li id="headerLogin"><a href="#"onClick="login()">登入</a></li>
+					<li id="headerLogout"><a href="#"onClick="logout()">登出</a></li>
+				</ul>
+			</div>
+		</div>
+
 		<div class="index_body">
 			<div class="category">
 				<ul class="list">
