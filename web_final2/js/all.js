@@ -463,6 +463,9 @@ function show() {
 function PutCart(){
 	firebase.auth().onAuthStateChanged(function(user) {
 		//check if login
+		var token = result.credential.accessToken;
+		var user = result.user;
+		var uid = user.uid;
 		if(user){
 			var url = location.search;
     		var temp = url.split("?");
