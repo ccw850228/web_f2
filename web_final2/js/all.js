@@ -515,8 +515,10 @@ function ShowCart(){
 			if(snapshot.hasChild(uid)){
 				var Ref=firebase.database().ref('Cart/'+uid+'/');
 				Ref.on("value",function(snapshot){
-				var num=snapshot.numChildren();
-				alert(num);
+					snapshot.forEach(function(childSnapshot){
+						var P_Name=childSnapshot.child(Buy_Product);
+						var P_Num=childSnapshot.child(Buy_Num);
+					});
 				});
 			}else{
 				alert("目前沒有資料喔");
