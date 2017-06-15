@@ -459,6 +459,10 @@ function show() {
 			});
 	
    }
+
+   function isInteger(obj) {
+    return obj%1 === 0
+}
  
 function PutCart(){
 	firebase.auth().onAuthStateChanged(function(user) {
@@ -472,8 +476,8 @@ function PutCart(){
   			var Buy_Item=temp[1];
   			var Buy_Num=document.getElementById('Buy_Num').value;
   			//check if input==null
-  			if(Buy_Num==""){
-  				alert('請輸入數字');
+  			if(Buy_Num==""||Buy_Num<=0||isInteger(Buy_Num)==false){
+  				alert('請輸入大於0的整數');
   			}else{
   				alert("已放入購物車!");
   			
