@@ -631,6 +631,7 @@ function Buy(){
 								total=total+t;
 							});
 						});
+						console.log(key);
 						var postData={
     						record_content : record_content,
     						record_total : total,
@@ -640,11 +641,8 @@ function Buy(){
     					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
     					return firebase.database().ref().update(updates);
 
-					console.log(currentDateTime);
-					console.log(record_no);
-					console.log(record_content);
-					console.log("Total:"+total);
-					console.log(key);
+					
+
 					});
     			}
 	});
