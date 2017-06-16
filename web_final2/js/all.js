@@ -701,10 +701,11 @@ function ShowBuyRecord(){
 				var Record_No=childSnapshot.key;
 				var Record_Time=childSnapshot.child(record_Time).val();
 				var Record_Total=childSnapshot.child(record_total).val();
-				var record_content=childSnapshot.child(record_content).val();
+				var Record_Content=childSnapshot.child(record_content).val();
 				console.log(Record_No);
 				console.log(Record_Time);
 				console.log(Record_Total);
+				console.log(Record_Content[0]);
 			});
 		});
 	});
