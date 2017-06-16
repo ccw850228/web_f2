@@ -624,7 +624,7 @@ function Buy(){
 								var P_Name=snapshot.child('P_Name').val();
 								var P_Price=snapshot.child('P_Price').val();
 								record_content.push(P_Name+"*"+P_Num);
-								var t=(P_Price*P_num);
+								var t=(P_Price*P_Num);
 								total=total+t;
 							});
 						});
