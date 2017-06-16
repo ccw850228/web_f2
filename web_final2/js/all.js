@@ -631,9 +631,7 @@ function Buy(){
 								Cart_keys.push(Cart_key);
 								total=total+t;
 							});
-							for(i=0;i<Cart_keys.length;i++){
-								console.log(Cart_keys[i]);
-							}
+							console.log(Cart_keys[0]);
 						});
 
 						var postData={
