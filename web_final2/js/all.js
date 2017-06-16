@@ -650,12 +650,12 @@ function Buy(){
     					};
     					var updates={};
     					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
-    					firebase.database().ref().update(updates).then(function(){
- 						sleep(2000);
+    					return firebase.database().ref().update(updates);
+    					/*firebase.database().ref().update(updates).then(function(){
     						for(i=0;i<Cart_keys.length;i++){
 							deleteCart(Cart_keys[i]);
 							}
-    					});
+    					});*/
     					
 
 					
