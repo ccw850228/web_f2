@@ -602,6 +602,7 @@ function deleteCart(key){
 
 function Buy(){
 	firebase.auth().onAuthStateChanged(function(user){
+		var Cart_key;
 		var today=new Date();
 		var currentDateTime =today.getFullYear()+'年'+(today.getMonth()+1)+'月'+today.getDate()+'日'+today.getHours()+'時'+today.getMinutes()+'分'+today.getSeconds()+'秒';
 		var uid=user.uid;
@@ -638,11 +639,12 @@ function Buy(){
     					var updates={};
     					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
     					return firebase.database().ref().update(updates);
-    					
+
 					console.log(currentDateTime);
 					console.log(record_no);
 					console.log(record_content);
 					console.log("Total:"+total);
+					console.log(key);
 					});
     			}
 	});
