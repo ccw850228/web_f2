@@ -459,6 +459,10 @@ function show() {
 			});
 	
    }
+
+   function isInteger(obj) {
+    return obj%1 === 0
+}
  
 function PutCart(){
 	firebase.auth().onAuthStateChanged(function(user) {
@@ -472,10 +476,10 @@ function PutCart(){
   			var Buy_Item=temp[1];
   			var Buy_Num=document.getElementById('Buy_Num').value;
   			//check if input==null
-  			if(Buy_Num==""){
-  				alert('請輸入數字');
+  			if(Buy_Num==""||Buy_Num<=0||isInteger(Buy_Num)==false){
+  				alert('請輸入大於0的整數');
   			}else{
-  				alert(Buy_Num);
+  				alert("已放入購物車!");
   			
   				var database=firebase.database();
 				var usersRef=database.ref('Cart/');
@@ -485,6 +489,7 @@ function PutCart(){
     					Buy_Product : Buy_Item,
     					Buy_Num:Buy_Num
     				};
+    				//var newPostKey=firebase.database().ref().child('Cart/').push().key;
     				var updates={};
     				updates['/Cart/'+uid+'/'+currentDateTime]=postData;
     				return firebase.database().ref().update(updates);
@@ -494,6 +499,7 @@ function PutCart(){
     					Buy_Product : Buy_Item,
     					Buy_Num:Buy_Num
     				};
+    				//var newPostKey=firebase.database().ref().child('Cart/').push().key;
     				var updates={};
     				updates['/Cart/'+uid+'/'+currentDateTime]=postData;
     				return firebase.database().ref().update(updates);
@@ -517,16 +523,14 @@ function ShowCart(){
 				var Ref=firebase.database().ref('Cart/'+uid+'/');
 				Ref.on("value",function(snapshot){
 					snapshot.forEach(function(childSnapshot){
+						var key=childSnapshot.key;
 						var P_No=childSnapshot.child('Buy_Product').val();
 						var P_Num=childSnapshot.child('Buy_Num').val();
 						var P_Ref=firebase.database().ref('Product/'+P_No+'/');
 						P_Ref.on("value",function(snapshot){
 							var P_Name=snapshot.child('P_Name').val();
 							var P_Price=snapshot.child('P_Price').val();
-							alert(P_No);
-							alert(P_Num);
-							alert(P_Name);
-							alert(P_Price);
+							
 							//html
 							var tr=document.createElement("tr");
 
@@ -548,6 +552,13 @@ function ShowCart(){
 							td4.appendChild(td4_text);
 
 							var td5=document.createElement("td");
+							var A=document.createElement("A");
+							var href=document.createAttribute("href");
+							var onclick=document.createAttribute("onclick");
+							onclick.value="deleteCart('"+key+"')";
+							href.value="#";
+							A.setAttributeNode(href);
+							A.setAttributeNode(onclick);
 							var image=document.createElement('img');
 							var src=document.createAttribute('src');
 							src.value=('img/delete.png');
@@ -555,7 +566,8 @@ function ShowCart(){
 							id.value=('xxx');
 							image.setAttributeNode(id);
 							image.setAttributeNode(src);
-							td5.appendChild(image);
+							A.appendChild(image);
+							td5.appendChild(A);
 
 							tr.appendChild(td1);
 							tr.appendChild(td2);
@@ -565,7 +577,7 @@ function ShowCart(){
 
 							document.getElementById('CartTable').appendChild(tr);
 							
-							Total=Total+P_Price;
+							Total=Total+t;
 							document.getElementById('All_Price').innerHTML="總價格:NT$"+Total;
 						});
 					});
@@ -577,4 +589,68 @@ function ShowCart(){
 	});
 
 	});
+}
+
+function deleteCart(key){
+	firebase.auth().onAuthStateChanged(function(user) {
+		var uid=user.uid;
+		var ref=firebase.database().ref('Cart/'+uid+'/');
+		ref.child(key).remove();
+		});
+		location.reload();
+}
+
+function Buy(){
+	firebase.auth().onAuthStateChanged(function(user){
+		var Cart_keys=[];
+		var today=new Date();
+		var currentDateTime =today.getFullYear()+'年'+(today.getMonth()+1)+'月'+today.getDate()+'日'+today.getHours()+'時'+today.getMinutes()+'分'+today.getSeconds()+'秒';
+		var uid=user.uid;
+		var record_content=[];
+		var total=0;
+		var record_no=0;
+		var ref=firebase.database().ref('record/'+uid+'/');
+		ref.once('value', function(snapshot) {
+    			var num=snapshot.numChildren();
+    			if(num==0){
+    				alert("no child");
+    			}else{
+    				var record_no=(num+1);
+    				var ref=firebase.database().ref('Cart/'+uid+'/');
+					ref.on('value',function(snapshot){
+						snapshot.forEach(function(childSnapshot){
+							var Cart_key=childSnapshot.key;
+							var P_No=childSnapshot.child('Buy_Product').val();
+							var P_Num=childSnapshot.child('Buy_Num').val();
+							var P_Ref=firebase.database().ref('Product/'+P_No+'/');
+							P_Ref.on("value",function(snapshot){
+								var P_Name=snapshot.child('P_Name').val();
+								var P_Price=snapshot.child('P_Price').val();
+								record_content.push(P_Name+"*"+P_Num);
+								var t=(P_Price*P_Num);
+								Cart_keys.push(Cart_key);
+								total=total+t;
+							});
+							for(i=0;i<Cart_keys.length;i++){
+								console.log(Cart_keys[i]);
+							}
+						});
+
+						var postData={
+    						record_content : record_content,
+    						record_total : total,
+    						record_Time : currentDateTime
+    					};
+    					var updates={};
+    					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
+    					return firebase.database().ref().update(updates);
+
+					
+
+					});
+    			}
+	});
+		
+	});
+
 }
