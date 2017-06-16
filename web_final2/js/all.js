@@ -723,7 +723,7 @@ function ShowBuyRecord(){
 				var br = document.createElement("br");
 				
 				for(i=0;i<num;i++){
-					var SPAN=document.createElement('span');
+					var SPAN=document.createElement('P');
 					var id=document.createAttribute('id');
 					id.value="td2_text_"+i;
 					console.log(Record_Content[i]);
