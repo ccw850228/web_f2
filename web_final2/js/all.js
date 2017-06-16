@@ -590,6 +590,14 @@ function ShowCart(){
 
 	});
 }
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
 function deleteCart(key){
 	firebase.auth().onAuthStateChanged(function(user) {
@@ -643,6 +651,7 @@ function Buy(){
     					var updates={};
     					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
     					firebase.database().ref().update(updates).then(function(){
+ 						sleep(2000);
     						for(i=0;i<Cart_keys.length;i++){
 							deleteCart(Cart_keys[i]);
 							}
