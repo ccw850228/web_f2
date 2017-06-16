@@ -630,6 +630,15 @@ function Buy(){
 								total=total+t;
 							});
 						});
+						var postData={
+    						record_content : record_content,
+    						record_total : total,
+    						record_Time : currentDateTime
+    					};
+    					var updates={};
+    					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
+    					return firebase.database().ref().update(updates);
+    					
 					console.log(currentDateTime);
 					console.log(record_no);
 					console.log(record_content);
