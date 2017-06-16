@@ -731,11 +731,11 @@ function ShowBuyRecord(){
 
 				var td3=document.createElement("td");
 				var td3_text =document.createTextNode(Record_Total);
-				td3.appendChild(td1_text);
+				td3.appendChild(td3_text);
 
 				var td4=document.createElement("td");
 				var td4_text =document.createTextNode(Record_Time);
-				td4.appendChild(td1_text);
+				td4.appendChild(td4_text);
 
 				tr.appendChild(td1);
 				tr.appendChild(td2);
