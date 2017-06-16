@@ -67,7 +67,7 @@ function logout(){
 	}
 
 function changeheader(name,img){
-	document.getElementById('headerLogin').innerHTML='<a href="#"><img src="'+img+'">'+name+'</a>';
+	document.getElementById('headerLogin').innerHTML='<a href="buyrecord.html"><img src="'+img+'">'+name+'</a>';
 }
 
 function ListGoods(page){
@@ -590,6 +590,14 @@ function ShowCart(){
 
 	});
 }
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
 function deleteCart(key){
 	firebase.auth().onAuthStateChanged(function(user) {
@@ -613,7 +621,37 @@ function Buy(){
 		ref.once('value', function(snapshot) {
     			var num=snapshot.numChildren();
     			if(num==0){
-    				alert("no child");
+    				var record_no=(num+1);
+    				var ref=firebase.database().ref('Cart/'+uid+'/');
+					ref.on('value',function(snapshot){
+						snapshot.forEach(function(childSnapshot){
+							var Cart_key=childSnapshot.key;
+							var P_No=childSnapshot.child('Buy_Product').val();
+							var P_Num=childSnapshot.child('Buy_Num').val();
+							var P_Ref=firebase.database().ref('Product/'+P_No+'/');
+							P_Ref.on("value",function(snapshot){
+								var P_Name=snapshot.child('P_Name').val();
+								var P_Price=snapshot.child('P_Price').val();
+								record_content.push(P_Name+"*"+P_Num);
+								var t=(P_Price*P_Num);
+								Cart_keys.push(Cart_key);
+								total=total+t;
+							});
+
+						});
+						var D_ref=firebase.database().ref('Cart/');
+						D_ref.child(uid).remove();
+
+						var postData={
+    						record_content : record_content,
+    						record_total : total,
+    						record_Time : currentDateTime
+    					};
+    					var updates={};
+    					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
+    					firebase.database().ref().update(updates);
+    					location.reload();
+					});
     			}else{
     				var record_no=(num+1);
     				var ref=firebase.database().ref('Cart/'+uid+'/');
@@ -631,10 +669,10 @@ function Buy(){
 								Cart_keys.push(Cart_key);
 								total=total+t;
 							});
-							for(i=0;i<Cart_keys.length;i++){
-								console.log(Cart_keys[i]);
-							}
+
 						});
+						var D_ref=firebase.database().ref('Cart/');
+						D_ref.child(uid).remove();
 
 						var postData={
     						record_content : record_content,
@@ -643,14 +681,71 @@ function Buy(){
     					};
     					var updates={};
     					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
-    					return firebase.database().ref().update(updates);
-
-					
-
+    					firebase.database().ref().update(updates);
+    					location.reload();
+    			
 					});
     			}
 	});
 		
 	});
 
+}
+
+function ShowBuyRecord(){
+	firebase.auth().onAuthStateChanged(function(user) {
+		var uid=user.uid;
+		var ref=firebase.database().ref('record/'+uid+'/');
+		ref.on('value',function(snapshot){
+			snapshot.forEach(function(childSnapshot){
+				var Record_No=childSnapshot.key;
+				var Record_Time=childSnapshot.child('record_Time').val();
+				var Record_Total=childSnapshot.child('record_total').val();
+				var Record_Content=childSnapshot.child('record_content').val();
+				var num=Record_Content.length;
+				for(i=0;i<num;i++){
+					console.log(Record_Content[i]);
+				}
+				console.log(Record_No);
+				console.log(Record_Time);
+				console.log(Record_Total);
+
+
+				var tr=document.createElement("tr");
+
+				var td1=document.createElement("td");
+				var td1_text =document.createTextNode(Record_No);
+				td1.appendChild(td1_text);
+
+				var td2=document.createElement("td");
+				var br = document.createElement("br");
+				for(i=0;i<num;i++){
+					console.log(Record_Content[i]);
+				
+				var td2_text =document.createTextNode(Record_Content[i]);
+
+				td2.appendChild(td2_text);
+				
+				}
+				
+
+				var td3=document.createElement("td");
+				var td3_text =document.createTextNode(Record_Total);
+				td3.appendChild(td3_text);
+
+				var td4=document.createElement("td");
+				var td4_text =document.createTextNode(Record_Time);
+				td4.appendChild(td4_text);
+
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				tr.appendChild(td4);
+
+				document.getElementById('record_table').appendChild(tr);
+
+
+			});
+		});
+	});
 }
