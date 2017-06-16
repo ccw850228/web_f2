@@ -2,8 +2,23 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>AllRecord</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css\style.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src='js\all.js'></script>
+	
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+	<script>
+	  firebase.initializeApp(config);
+	</script>
+	<script>
+		$( document ).ready(function() {
+			ShowAllBuyRecord();
+		});
+	</script>
 </head>
 <body>
 	<div class="All_record">
@@ -16,62 +31,16 @@
 					<li id="buy_already"><a href="#">已出貨</a></li>
 				</ul>
 			</div> -->
-			<div class="record_list">
-				<table border="1">
+			<div class="record_list" >
+				<table border="1" id="record_table">
 				  <tr>
-				    <th class="A_num">訂單編號</th>
-				     <th class="A_ID">訂購人ID</th>
+				    <th class="A_num">訂購人</th>
+				     <th class="A_ID">訂單編號</th>
 				    <th class="A_con">訂單內容</th>
 				     <th class="A_price">訂單金額</th>
 				     <th class="A_date">訂單日期</th>
 				  </tr>
-				  <tr>
-				    <td>1031031</td>
-				    <td>scps9213123</td>
-				    <td>杏仁脆片肉乾*2 <br>
-				    	杏仁脆片肉乾*2 <br>
-				    	杏仁脆片肉乾*2 <br>
-				    	杏仁脆片肉乾*2 <br>
-
-
-				    </td>
-				    <td>$10000</td>
-				    <td>2017/7/8 20:10:10</td>
-				  </tr>
-
-				  <tr>
-				    <td>1031031</td>
-				    <td>scps9213123</td>
-				    <td>杏仁脆片肉乾*2</td>
-				    <td>$10000</td>
-				    <td>2017/7/8 20:10:10</td>
-				  </tr>
-
-				  <tr>
-				    <td>1031031</td>
-				    <td>scps9213123</td>
-				    <td>杏仁脆片肉乾*2</td>
-				    <td>$10000</td>
-				    <td>2017/7/8 20:10:10</td>
-				  </tr>
-
-				   <tr>
-				    <td>1031031</td>
-				    <td>scps9213123</td>
-				    <td>杏仁脆片肉乾*2</td>
-				    <td>$10000</td>
-				    <td>2017/7/8 20:10:10</td>
-				  </tr>
-
-				   <tr>
-				    <td>1031031</td>
-				    <td>scps9213123</td>
-				    <td>杏仁脆片肉乾*2</td>
-				    <td>$10000</td>
-				    <td>2017/7/8 20:10:10</td>
-				  </tr>
-
-					
+				
 				</table> 
 
 			</div>
