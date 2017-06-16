@@ -628,10 +628,10 @@ function Buy(){
 								total=total+t;
 							});
 						});
+					console.log("Total:"+total);
 					});
     			}
 	});
-		console.log("Total:"+total);
 		console.log(record_content);
 	});
 
