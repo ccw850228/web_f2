@@ -602,9 +602,15 @@ function deleteCart(key){
 
 function Buy(){
 	firebase.auth().onAuthStateChanged(function(user){
-		alert("hi");
-		//var uid=user.uid;
-		//var ref.firebase.database().ref('Cart/'+uid+'/');
-
+		var uid=user.uid;
+		var ref=firebase.database().ref('record'+uid+'/');
+		ref.once('value', function(snapshot) {
+    			if(snapshot.hasChild(uid)){
+    				var num=snapshot.numChildren();
+    				alert(num);    				
+    			}else{
+  					alert("no child");
+		}
+	});
 	});
 }
