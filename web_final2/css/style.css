@@ -352,7 +352,6 @@ a{
 	font-size: 20px;
 	text-align: center;
 }
-
 /*-----cart-------*/
 .cart_body{
 	width: 1000px;
@@ -391,13 +390,13 @@ a{
 
 .cart_body th{
 
-	background-color: #F4A460;
+	background-color: 	#FF8888;
 	font-size: 20px;
 }
 .cart_body td{
 	padding: 10px 0;
 	text-align: center;
-	background-color: 	#FFE4E1;
+	background-color: #FFF8DC	;
 
 }
 
@@ -414,12 +413,14 @@ a{
 	height:80px;
 	margin-top:30px;
 	font-size: 25px;
-	padding: 20px;
+	padding: 10px;
 	float:left;
-	color:#E63F00;
+	color:#FA8072;
+	/*#E63F00*/
 	font-weight:bold;
 
 }
+
 
 .info{
 	height: 150px;
@@ -459,15 +460,15 @@ a{
 	margin-top: 20px;
 	text-decoration: none;
 	display: block;
-	padding: 20px 40px;
+	padding: 10px 20px;
 	color: #fff;
-	background :#FF7F50;
+	background :	#FF7744;
 	float: right;
 }
 
 .cart_body img{
 	float:left;
-	margin-top:20px;
+	margin-top:10px;
 	width:80px;
 	height:80px;
 }
@@ -482,9 +483,101 @@ a{
 #All_Price{
 	float: right;
 	text-align: center;
-	width:300px;
-	padding: 5px 0;
+	width:280px;
+	padding: 10px 0;
 	display: block;
 	font-size: 30px;
-	border-bottom:5px dashed 	#FF4500;
+	border-bottom:5px dashed red;
+}
+
+	/*-----------buyrecord----------*/
+
+.buyrecord_body{
+	width: 1000px;
+	margin: 0 auto;
+	height: auto;
+	/*border:1px solid gray;*/
+	height: auto;
+;}
+
+.buyrecord_category{
+	width: 1000px;
+	margin: 0 auto;
+	height: auto;
+	/*border:1px solid gray;*/
+	height:70px;
+	text-align: center;
+}
+
+.buyrecord_category ul{
+	width: 800px;
+	height: 70px;
+	margin: 0 auto;
+
+}
+
+
+.buyrecord_category li{
+	float:left;
+	margin: 10px 0px;
+
+}
+
+.buyrecord_category li a{
+	/*height:30px;*/
+	/*line-height: 40px;*/
+	font-size: 20px;
+	display: block;
+	text-decoration: none;
+	width: 250px;
+	color: #3C3C3C;
+	text-align: center;
+	padding:10px 0px;
+	border-right:1px solid #E0E0E0;
+}
+
+.buyrecord_category a:hover{
+	background: #FFAA33;
+	color:#FFF;
+}
+
+.buyrecord_body h2{
+	font-size: 30px;
+	padding: 20px;
+	border-bottom: 1px solid gainsboro;
+}
+
+.buyrecord_list table, .buyrecord_list tr,.buyrecord_list th, .buyrecord_list td{
+	border:1px solid gray;
+}
+
+.l_num{
+	width: 200px;
+	padding: 20px 0;
+}
+
+.l_con{
+	width: 300px;
+	padding: 20px 0;
+}
+
+.l_price{
+	width: 250px;
+	padding: 20px 0;
+
+
+}
+.l_date{
+	width: 250px;
+	padding: 20px 0;
+}
+
+.buyrecord_list th{
+
+	background-color: #F4A460;
+}
+.buyrecord_list td{
+	padding: 10px 0;
+	text-align: center;
+	background-color: 	#FFE4E1;
 }
