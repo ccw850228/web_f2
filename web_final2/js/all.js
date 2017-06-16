@@ -630,6 +630,11 @@ function Buy(){
 							var P_Num=childSnapshot.child('Buy_Num').val();
 							var P_Ref=firebase.database().ref('Product/'+P_No+'/');
 							P_Ref.on("value",function(snapshot){
+								var P_Sell=snapshot.child('P_Sell').val();
+								var Update_P_Sell=(P_Sell+P_Num);
+								snapshot.ref().update({
+									"P_Sell":Update_P_Sell;
+								});
 								var P_Name=snapshot.child('P_Name').val();
 								var P_Price=snapshot.child('P_Price').val();
 								record_content.push(P_Name+"*"+P_Num);
