@@ -602,9 +602,11 @@ function deleteCart(key){
 
 function Buy(){
 	firebase.auth().onAuthStateChanged(function(user){
+		var currentDateTime =today.getFullYear()+'年'+(today.getMonth()+1)+'月'+today.getDate()+'日'+today.getHours()+'時'+today.getMinutes()+'分'+today.getSeconds()+'秒';
 		var uid=user.uid;
 		var record_content=[];
 		var total=0;
+		var record_no=0;
 		var ref=firebase.database().ref('record/'+uid+'/');
 		ref.once('value', function(snapshot) {
     			var num=snapshot.numChildren();
@@ -612,7 +614,6 @@ function Buy(){
     				alert("no child");
     			}else{
     				var record_no=(num+1);
-    				alert('this is record'+record_no);
     				var ref=firebase.database().ref('Cart/'+uid+'/');
 					ref.on('value',function(snapshot){
 						snapshot.forEach(function(childSnapshot){
@@ -628,11 +629,14 @@ function Buy(){
 								total=total+t;
 							});
 						});
+					console.log(currentDateTime);
+					console.log(record_no);
+					console.log(record_content);
 					console.log("Total:"+total);
 					});
     			}
 	});
-		console.log(record_content);
+		
 	});
 
 }
