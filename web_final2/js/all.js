@@ -641,9 +641,8 @@ function Buy(){
 							});
 
 						});
-						for(i=0;i<Cart_keys.length;i++){
-							deleteCart(Cart_keys[i]);
-							}
+						var D_ref=firebase.database().ref('Cart/');
+						D_ref.child(uid).remove();
 
 						var postData={
     						record_content : record_content,
