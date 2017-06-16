@@ -720,7 +720,7 @@ function ShowBuyRecord(){
 				
 				var td2=document.createElement("td");
 				
-				var br = document.createElement("br/");
+				var br = document.createElement("br");
 				
 				for(i=0;i<num;i++){
 					var SPAN=document.createElement('span');
