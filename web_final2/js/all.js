@@ -703,13 +703,7 @@ function ShowBuyRecord(){
 				var Record_Total=childSnapshot.child('record_total').val();
 				var Record_Content=childSnapshot.child('record_content').val();
 				var num=Record_Content.length;
-				for(i=0;i<num;i++){
-					console.log(Record_Content[i]);
-				}
-				console.log(Record_No);
-				console.log(Record_Time);
-				console.log(Record_Total);
-
+				
 
 				var tr=document.createElement("tr");
 
@@ -726,7 +720,7 @@ function ShowBuyRecord(){
 					var SPAN=document.createElement('P');
 					var id=document.createAttribute('id');
 					id.value="td2_text_"+i;
-					console.log(Record_Content[i]);
+				
 				var td2_text =document.createTextNode(Record_Content[i]);
 				SPAN.setAttributeNode(id);
 				SPAN.appendChild(td2_text);
@@ -762,20 +756,61 @@ function ShowAllBuyRecord(){
 	ref.on('value',function(snapshot){
 		snapshot.forEach(function(childSnapshot){
 			var uid=childSnapshot.key;
-			var R_ref=firebase.database().ref('record/'+uid+'/');
-			R_ref.on('value',function(snapshot){
-				snapshot.forEach(function(childSnapshot){
-					var Record_No=childSnapshot.key;
-					var Record_Time=childSnapshot.child('record_Time').val();
-					var Record_Total=childSnapshot.child('record_total').val();
-					var Record_Content=childSnapshot.child('record_content').val();
-					var num=Record_Content.length;
-					for(i=0;i<num;i++){
-						console.log(Record_Content[i]);
-					}
-					console.log(Record_No);
-					console.log(Record_Time);
-					console.log(Record_Total);
+			U_ref=firebase.database().ref('Users/'+uid+"/");
+			U_ref.on('value',function(snapshot){
+				var name=snapshot.child('username').val();
+				
+				var R_ref=firebase.database().ref('record/'+uid+'/');
+					R_ref.on('value',function(snapshot){
+						snapshot.forEach(function(childSnapshot){
+							var Record_No=childSnapshot.key;
+							var Record_Time=childSnapshot.child('record_Time').val();
+							var Record_Total=childSnapshot.child('record_total').val();
+							var Record_Content=childSnapshot.child('record_content').val();
+							var num=Record_Content.length;	
+					
+							
+
+							var tr=document.createElement("tr");
+
+							var td1=document.createElement("td");
+							var td1_text =document.createTextNode(name);
+							td1.appendChild(td1_text);
+
+							var td10=document.createElement("td");
+							var td10_text=document.createTextNode(Record_No);
+							td10.appendChild(td10_text);
+				
+							var td2=document.createElement("td");
+							for(i=0;i<num;i++){
+								var SPAN=document.createElement('P');
+								var id=document.createAttribute('id');
+								id.value="td2_text_"+i;
+							
+								var td2_text =document.createTextNode(Record_Content[i]);
+								SPAN.setAttributeNode(id);
+								SPAN.appendChild(td2_text);
+								td2.appendChild(SPAN);
+				
+							}
+					
+
+							var td3=document.createElement("td");
+							var td3_text =document.createTextNode(Record_Total);
+							td3.appendChild(td3_text);
+
+							var td4=document.createElement("td");
+							var td4_text =document.createTextNode(Record_Time);
+							td4.appendChild(td4_text);
+
+							tr.appendChild(td1);
+							tr.appendChild(td10);
+							tr.appendChild(td2);
+							tr.appendChild(td3);
+							tr.appendChild(td4);
+
+							document.getElementById('record_table').appendChild(tr);
+					});
 				});
 			});
 		});
