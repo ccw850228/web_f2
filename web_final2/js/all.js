@@ -621,7 +621,37 @@ function Buy(){
 		ref.once('value', function(snapshot) {
     			var num=snapshot.numChildren();
     			if(num==0){
-    				alert("no child");
+    				var record_no=(num+1);
+    				var ref=firebase.database().ref('Cart/'+uid+'/');
+					ref.on('value',function(snapshot){
+						snapshot.forEach(function(childSnapshot){
+							var Cart_key=childSnapshot.key;
+							var P_No=childSnapshot.child('Buy_Product').val();
+							var P_Num=childSnapshot.child('Buy_Num').val();
+							var P_Ref=firebase.database().ref('Product/'+P_No+'/');
+							P_Ref.on("value",function(snapshot){
+								var P_Name=snapshot.child('P_Name').val();
+								var P_Price=snapshot.child('P_Price').val();
+								record_content.push(P_Name+"*"+P_Num);
+								var t=(P_Price*P_Num);
+								Cart_keys.push(Cart_key);
+								total=total+t;
+							});
+
+						});
+						var D_ref=firebase.database().ref('Cart/');
+						D_ref.child(uid).remove();
+
+						var postData={
+    						record_content : record_content,
+    						record_total : total,
+    						record_Time : currentDateTime
+    					};
+    					var updates={};
+    					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
+    					firebase.database().ref().update(updates);
+    					location.reload();
+					});
     			}else{
     				var record_no=(num+1);
     				var ref=firebase.database().ref('Cart/'+uid+'/');
@@ -653,15 +683,7 @@ function Buy(){
     					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
     					firebase.database().ref().update(updates);
     					location.reload();
-    					/*firebase.database().ref().update(updates).then(function(){
-    						for(i=0;i<Cart_keys.length;i++){
-							deleteCart(Cart_keys[i]);
-							}
-    					});*/
-    					
-
-					
-
+    			
 					});
     			}
 	});
