@@ -597,11 +597,11 @@ a{
 
 
 .A_num{
-	width: 200px;
+	width: 150px;
 	padding: 20px 0;
 }
 .A_ID{
-	width: 250px;
+	width: 300px;
 	padding: 20px 0;
 }
 .A_con{
@@ -616,7 +616,7 @@ a{
 
 }
 .A_date{
-	width: 200px;
+	width: 300px;
 	padding: 20px 0;
 }
 
