@@ -631,7 +631,7 @@ function Buy(){
 								total=total+t;
 							});
 						});
-						console.log(key);
+						console.log(Cart_key);
 						var postData={
     						record_content : record_content,
     						record_total : total,
