@@ -581,3 +581,70 @@ a{
 	text-align: center;
 	background-color: 	#FFE4E1;
 }
+
+
+/*---------allrecord----------------*/
+
+.All_record{
+	width: 1200px;
+	margin: 40px;
+}
+
+.All_record h2{
+	font-size: 30px;
+	margin: 50px 0;
+}
+
+
+.A_num{
+	width: 200px;
+	padding: 20px 0;
+}
+.A_ID{
+	width: 250px;
+	padding: 20px 0;
+}
+.A_con{
+	width: 330px;
+	padding: 20px 0;
+}
+
+.A_price{
+	width: 250px;
+	padding: 20px 0;
+
+
+}
+.A_date{
+	width: 200px;
+	padding: 20px 0;
+}
+
+/*.record_list table, .record_list tr,.record_list th, .record_list td{
+	border:1px solid gray;
+}*/
+
+
+
+
+.record_list th{
+	font-size: 20px;
+
+	background-color:#5599FF;
+}
+.record_list td{
+	padding: 10px 0;
+	text-align: center;
+	/*background-color: 	#FFE4E1;*/
+	border-bottom: 1px solid #5599FF;
+}
+
+
+
+
+.record_list tr:nth-child(even) {
+background: #CCDDFF;
+}
+.record_list tr:nth-child(odd) {
+background: #FFF;
+}
