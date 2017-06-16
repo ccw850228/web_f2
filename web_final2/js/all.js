@@ -603,7 +603,7 @@ function deleteCart(key){
 function Buy(){
 	firebase.auth().onAuthStateChanged(function(user){
 		var uid=user.uid;
-		var ref=firebase.database().ref('record'+uid+'/');
+		var ref=firebase.database().ref('record/'+uid+'/');
 		ref.once('value', function(snapshot) {
     			var num=snapshot.numChildren();
     			if(num==0){
