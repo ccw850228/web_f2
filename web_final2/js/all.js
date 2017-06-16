@@ -699,9 +699,9 @@ function ShowBuyRecord(){
 		ref.on('value',function(snapshot){
 			snapshot.forEach(function(childSnapshot){
 				var Record_No=childSnapshot.key;
-				var Record_Time=childSnapshot.child(record_Time).val();
-				var Record_Total=childSnapshot.child(record_total).val();
-				var Record_Content=childSnapshot.child(record_content).val();
+				var Record_Time=childSnapshot.child('record_Time').val();
+				var Record_Total=childSnapshot.child('record_total').val();
+				var Record_Content=childSnapshot.child('record_content').val();
 				console.log(Record_No);
 				console.log(Record_Time);
 				console.log(Record_Total);
