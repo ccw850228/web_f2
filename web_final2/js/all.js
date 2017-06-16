@@ -602,6 +602,7 @@ function deleteCart(key){
 
 function Buy(){
 	firebase.auth().onAuthStateChanged(function(user){
+		var today=new Date();
 		var currentDateTime =today.getFullYear()+'年'+(today.getMonth()+1)+'月'+today.getDate()+'日'+today.getHours()+'時'+today.getMinutes()+'分'+today.getSeconds()+'秒';
 		var uid=user.uid;
 		var record_content=[];
