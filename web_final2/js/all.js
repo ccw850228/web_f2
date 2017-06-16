@@ -609,7 +609,14 @@ function Buy(){
     			if(num==0){
     				alert("no child");
     			}else{
-    				alert(num);
+    				var record_no=(num+1);
+    				alert('this is record'+record_no);
+    				var ref=firebase.database().ref('Cart/'+uid+'/');
+					ref.on('value',function(snapshot){
+						snapshot.forEach(function(childSnapshot){
+							alert(childSnapshot.key);
+						});
+					});
     			}
 	});
 	});
