@@ -605,12 +605,12 @@ function Buy(){
 		var uid=user.uid;
 		var ref=firebase.database().ref('record'+uid+'/');
 		ref.once('value', function(snapshot) {
-    			if(snapshot.hasChild(uid)){
-    				var num=snapshot.numChildren();
-    				alert(num);    				
+    			var num=snapshot.numChildren();
+    			if(num==0){
+    				alert("no child");
     			}else{
-  					alert("no child");
-		}
+    				alert(num);
+    			}
 	});
 	});
 }
