@@ -629,6 +629,7 @@ function Buy(){
 					});
     			}
 	});
+		console.log(record_content);
 	});
-	console.log(record_content);
+
 }
