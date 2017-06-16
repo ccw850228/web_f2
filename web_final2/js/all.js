@@ -632,10 +632,7 @@ function Buy(){
 							P_Ref.on("value",function(snapshot){
 								var P_Sell=snapshot.child('P_Sell').val();
 								var Update_P_Sell=(P_Sell+P_Num);
-								snapshot.ref().update({
-									"P_Sell":Update_P_Sell
-								});
-								console.log(Update_P_Sell);
+								alert(P_Sell);
 								var P_Name=snapshot.child('P_Name').val();
 								var P_Price=snapshot.child('P_Price').val();
 								record_content.push(P_Name+"*"+P_Num);
