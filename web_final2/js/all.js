@@ -721,7 +721,7 @@ function ShowBuyRecord(){
 				var br = document.createElement("br");
 				for(i=0;i<num;i++){
 					console.log(Record_Content[i]);
-				var td2_text =document.createTextNode(Record_Content[i]+"<br/>");
+				var td2_text =document.createTextNode(Record_Content[i]+br);
 				td2.appendChild(td2_text);
 				
 				}
