@@ -603,6 +603,7 @@ function deleteCart(key){
 function Buy(){
 	firebase.auth().onAuthStateChanged(function(user){
 		var uid=user.uid;
+		var record_content=[];
 		var ref=firebase.database().ref('record/'+uid+'/');
 		ref.once('value', function(snapshot) {
     			var num=snapshot.numChildren();
@@ -614,7 +615,16 @@ function Buy(){
     				var ref=firebase.database().ref('Cart/'+uid+'/');
 					ref.on('value',function(snapshot){
 						snapshot.forEach(function(childSnapshot){
-							alert(childSnapshot.key);
+							var Cart_key=childSnapshot.key;
+							var P_No=childSnapshot.child('Buy_Product').val();
+							var P_Num=childSnapshot.child('Buy_Num').val();
+							var P_Ref=firebase.database().ref('Product/'+P_No+'/');
+							P_Ref.on("value",function(snapshot){
+								var P_Name=snapshot.child('P_Name').val();
+								var P_Price=snapshot.child('P_Price').val();
+								record_content.push(P_Name+"*"+P_Num);
+								console.log(record_content);
+							});
 						});
 					});
     			}
