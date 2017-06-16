@@ -721,15 +721,15 @@ function ShowBuyRecord(){
 				var td2=document.createElement("td");
 				var id=document.createAttribute('id');
 				var br = document.createElement("br");
-				
+				id.value="td2_test";
 				for(i=0;i<num;i++){
-					for(j=0;j<2;j++){
 					console.log(Record_Content[i]);
-					var td2_text =document.createTextNode(Record_Content[i]);
-
-					td2.appendChild(br);
-					}
-					td2.appendChild(td2_text);
+				var td2_text =document.createTextNode(Record_Content[i]);
+				SPAN.setAttributeNode(id);
+				SPAN.appendChild(td2_text);
+				SPAN.appendChild(br)
+				td2.appendChild(SPAN);
+				
 				}
 				
 
