@@ -604,6 +604,7 @@ function Buy(){
 	firebase.auth().onAuthStateChanged(function(user){
 		var uid=user.uid;
 		var record_content=[];
+		var total=0;
 		var ref=firebase.database().ref('record/'+uid+'/');
 		ref.once('value', function(snapshot) {
     			var num=snapshot.numChildren();
@@ -623,12 +624,14 @@ function Buy(){
 								var P_Name=snapshot.child('P_Name').val();
 								var P_Price=snapshot.child('P_Price').val();
 								record_content.push(P_Name+"*"+P_Num);
-
+								var t=(P_Price*P_num);
+								total=total+t;
 							});
 						});
 					});
     			}
 	});
+		console.log("Total:"+total);
 		console.log(record_content);
 	});
 
