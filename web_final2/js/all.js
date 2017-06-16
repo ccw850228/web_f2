@@ -633,9 +633,7 @@ function Buy(){
 							});
 
 						});
-						for(i=0;i<Cart_keys.length;i++){
-							console.log(Cart_keys[i]);
-						}
+
 						
 						var postData={
     						record_content : record_content,
@@ -644,6 +642,9 @@ function Buy(){
     					};
     					var updates={};
     					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
+    					for(i=0;i<Cart_keys.length;i++){
+							deleteCart(Cart_keys[i]);
+						}
     					return firebase.database().ref().update(updates);
 
 					
