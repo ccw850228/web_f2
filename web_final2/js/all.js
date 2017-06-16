@@ -599,3 +599,12 @@ function deleteCart(key){
 		});
 		location.reload();
 }
+
+function Buy(){
+	firebase.auth().onAuthStateChanged(function(user){
+		alert("hi");
+		//var uid=user.uid;
+		//var ref.firebase.database().ref('Cart/'+uid+'/');
+
+	});
+}
