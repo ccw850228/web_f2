@@ -67,7 +67,7 @@ function logout(){
 	}
 
 function changeheader(name,img){
-	document.getElementById('headerLogin').innerHTML='<a href="#"><img src="'+img+'">'+name+'</a>';
+	document.getElementById('headerLogin').innerHTML='<a href="buyrecord.html"><img src="'+img+'">'+name+'</a>';
 }
 
 function ListGoods(page){
