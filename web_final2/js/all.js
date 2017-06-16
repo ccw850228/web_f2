@@ -718,12 +718,15 @@ function ShowBuyRecord(){
 				td1.appendChild(td1_text);
 
 				var td2=document.createElement("td");
+				var id=document.createAttribute('id');
 				var br = document.createElement("br");
+				id.value="td2_test";
 				for(i=0;i<num;i++){
 					console.log(Record_Content[i]);
 				var td2_text =document.createTextNode(Record_Content[i]);
-				document.write('<br/>');
+				td2_text.setAttributeNode(id);
 				td2.appendChild(td2_text);
+				document.getElementById('td2_test').innerHTML=Record_Content[i]+"<br/>";	
 				
 				}
 				
