@@ -651,7 +651,8 @@ function Buy(){
     					};
     					var updates={};
     					updates['/record/'+uid+'/'+'record_'+record_no]=postData;
-    					return firebase.database().ref().update(updates);
+    					firebase.database().ref().update(updates);
+    					location.reload();
     					/*firebase.database().ref().update(updates).then(function(){
     						for(i=0;i<Cart_keys.length;i++){
 							deleteCart(Cart_keys[i]);
