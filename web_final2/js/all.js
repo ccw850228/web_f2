@@ -724,9 +724,11 @@ function ShowBuyRecord(){
 				id.value="td2_test";
 				for(i=0;i<num;i++){
 					console.log(Record_Content[i]);
+				var td2_text =document.createTextNode(Record_Content[i]);
 				SPAN.setAttributeNode(id);
-				td2.appendChild(SPAN);
-				document.getElementById('td2_test').innerHTML=Record_Content[i]+"<br/>";	
+				SPAN.appendChild(td2_text);
+				SPAN.appendChild(br);
+				td2.appendChild(td2_text);
 				
 				}
 				
