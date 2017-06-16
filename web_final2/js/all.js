@@ -717,12 +717,15 @@ function ShowBuyRecord(){
 				var td1_text =document.createTextNode(Record_No);
 				td1.appendChild(td1_text);
 
-				var SPAN=document.createElement('span');
+				
 				var td2=document.createElement("td");
-				var id=document.createAttribute('id');
-				var br = document.createElement("br");
-				id.value="td2_test";
+				
+				var br = document.createElement("br/");
+				
 				for(i=0;i<num;i++){
+					var SPAN=document.createElement('span');
+					var id=document.createAttribute('id');
+					id.value="td2_text_"+i;
 					console.log(Record_Content[i]);
 				var td2_text =document.createTextNode(Record_Content[i]);
 				SPAN.setAttributeNode(id);
