@@ -691,3 +691,21 @@ function Buy(){
 	});
 
 }
+
+function ShowBuyRecord(){
+	firebase.auth().onAuthStateChanged(function(user) {
+		var uid=user.uid;
+		var ref=firebase.database().ref('record/'+uid+'/');
+		ref.on('value',function(snapshot){
+			snapshot.forEach(function(childSnapshot){
+				var Record_No=childSnapshot.key;
+				var Record_Time=childSnapshot.child(record_Time).val();
+				var Record_Total=childSnapshot.child(record_total).val();
+				var record_content=childSnapshot.child(record_content).val();
+				console.log(Record_No);
+				console.log(Record_Time);
+				console.log(Record_Total);
+			});
+		});
+	});
+}
