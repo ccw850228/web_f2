@@ -756,3 +756,28 @@ function ShowBuyRecord(){
 		});
 	});
 }
+
+function ShowAllBuyRecord(){
+	var ref=firebase.database().ref('record/');
+	ref.on('value',function(snapshot){
+		snapshot.forEach(function(childSnapshot){
+			var uid=childSnapshot.key;
+			var R_ref=firebase.database().ref('record/'+uid+'/');
+			R_ref.on('value',function(snapshot){
+				snapshot.forEach(function(childSnapshot){
+					var Record_No=childSnapshot.key;
+					var Record_Time=childSnapshot.child('record_Time').val();
+					var Record_Total=childSnapshot.child('record_total').val();
+					var Record_Content=childSnapshot.child('record_content').val();
+					var num=Record_Content.length;
+					for(i=0;i<num;i++){
+						console.log(Record_Content[i]);
+					}
+					console.log(Record_No);
+					console.log(Record_Time);
+					console.log(Record_Total);
+				});
+			});
+		});
+	});
+}
