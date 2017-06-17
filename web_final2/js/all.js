@@ -472,7 +472,7 @@ function PutCart(){
 		var currentDateTime =today.getFullYear()+'年'+(today.getMonth()+1)+'月'+today.getDate()+'日'+today.getHours()+'時'+today.getMinutes()+'分'+today.getSeconds()+'秒';
 		if(user){
 			var url = location.search;
-    		var temp = url.split("?");
+    			var temp = url.split("?");
   			var Buy_Item=temp[1];
   			var Buy_Num=document.getElementById('Buy_Num').value;
   			//check if input==null
@@ -484,29 +484,16 @@ function PutCart(){
   				var database=firebase.database();
 				var usersRef=database.ref('Cart/');
 				usersRef.once('value', function(snapshot) {
-    			if(snapshot.hasChild(uid)){
-    				var postData={
+    					var postData={
     					Buy_Product : Buy_Item,
     					Buy_Num:Buy_Num
-    				};
-    				//var newPostKey=firebase.database().ref().child('Cart/').push().key;
+    					};
     				var updates={};
     				updates['/Cart/'+uid+'/'+currentDateTime]=postData;
     				return firebase.database().ref().update(updates);
 
-    			}else{
- 					var postData={
-    					Buy_Product : Buy_Item,
-    					Buy_Num:Buy_Num
-    				};
-    				//var newPostKey=firebase.database().ref().child('Cart/').push().key;
-    				var updates={};
-    				updates['/Cart/'+uid+'/'+currentDateTime]=postData;
-    				return firebase.database().ref().update(updates);
-    		}
-   	 		
-  		});
-  			}
+    				});
+    			}
 		}else{
 			alert("請先登入");
 		}
