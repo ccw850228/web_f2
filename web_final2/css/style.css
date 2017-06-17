@@ -47,6 +47,14 @@ a{
 	text-decoration: none;
 }
 
+input{
+	padding:5px 15px; 
+	border:1.5px gray solid;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+}
+
 .wrap{
 	width: 1200px;
 	height: 1000px;
@@ -210,7 +218,9 @@ a{
 	width: 350px;
 	height: 450px;
 	margin: 20px;
-	border:1px solid red;
+	border:2px groove silver;
+	border-top: 2px;
+	border-left: 2px;
 	float: left;
 }
 
@@ -260,7 +270,7 @@ a{
 .detail_con input{
 	width: 100px;
 	float: left;
-	height: 25px;
+	height: 20px;
 	margin: 20px 5px;
 
 }
@@ -275,6 +285,8 @@ a{
 	text-align: center;
 	color: #fff;
 	margin-left: 10px;
+	margin-left: 30px;
+	margin-top: 20px;
 }
 
 
