@@ -53,6 +53,7 @@ input{
 	cursor:pointer;
 	-webkit-border-radius: 5px;
 	border-radius: 5px; 
+	height: 20px;
 }
 
 .wrap{
