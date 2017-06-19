@@ -101,8 +101,8 @@ input{
 }
 
 .headerlist li a{
-	height:60px;
-	line-height: 60px;
+	height:40px;
+	line-height: 40px;
 	font-size: 20px;
 	display: block;
 	text-decoration: none;
@@ -110,12 +110,12 @@ input{
 	color: #3C3C3C;
 	text-align: center;
 	padding:10px;
-	border-right:2px solid #FF7744;
+	border-right:3px solid #FF5511;
 }
 
 .headerlist a:hover{
-	background:	#FF8800;
-	color:#FFF;
+	background:	#FFDD55;
+	color:#880000;
 }
 
 #headerLogin img{
@@ -286,7 +286,7 @@ input{
 	width: 150px;
 	font-size: 20px;
 	float: left;
-	background: #FF6347;
+	background: #FF0000;
 	text-align: center;
 	color: #fff;
 	margin-left: 10px;
@@ -342,8 +342,9 @@ input{
 	text-decoration: none;
 }
 #new_arrival .controls li.selected a {
-	background: #FF0000;
-	color:	#fff;
+	background: #FFFF00;
+	color:#880000;
+
 }
 
 .hot{
