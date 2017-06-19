@@ -27,6 +27,10 @@ body {
 	line-height: 1;
 	font-family: Microsoft JhengHei;
 }
+body{
+	background-image: url(../img/bg_html.jpg);
+    background-repeat: repeat;
+}
 ol, ul {
 	list-style: none;
 }
@@ -99,18 +103,18 @@ input{
 .headerlist li a{
 	height:60px;
 	line-height: 60px;
-	font-size: 18px;
+	font-size: 20px;
 	display: block;
 	text-decoration: none;
 	width: 250px;
 	color: #3C3C3C;
 	text-align: center;
 	padding:10px;
-	border-right:1px solid #E0E0E0;
+	border-right:2px solid #FF7744;
 }
 
 .headerlist a:hover{
-	background: #FFAA33;
+	background:	#FF8800;
 	color:#FFF;
 }
 
@@ -128,7 +132,7 @@ input{
 .index_body .category{
 	width: 200px;
 	height: auto;
-	border: 1px solid 	#E0E0E0;
+	/*border: 3px solid 	#fff;*/
 	float: left;
 }
 
@@ -145,7 +149,7 @@ input{
 	padding:15px 20px;
 	text-decoration: none;
 	font-size: 20px;
-	border-bottom: 1px solid 	#E0E0E0;
+	border-bottom: 3px solid #FFAA33;
 	color: 	#3C3C3C;
 }
 
@@ -185,7 +189,7 @@ input{
 }
 
 .goods:hover{
-	background: #FFEFD5;
+	background:#FAF0E6;
 }
 
 
@@ -338,17 +342,19 @@ input{
 	text-decoration: none;
 }
 #new_arrival .controls li.selected a {
-	background: orangered;
+	background: #FF0000;
 	color:	#fff;
 }
 
-
+.hot{
+	background-color:#FFF;
+}
  
 
  .body_main .hot { 
  	width: 900px;
  	height: 430px;
- 	border:1px outset #AAAAAA;
+ 	border:2px outset #fff;
  	padding-top: 40px;
  	margin-top: 30px;
  	position: relative;
@@ -357,15 +363,16 @@ input{
 
 #hhh{
 	display: block;
-	width: 150px;
-	padding: 20px 50px;
+	width: 120px;
+	padding: 20px 10px;
 	border:1px solid 	#AAAAAA;
 	position: absolute;
 	left: 20px;
 	top:-20px;
-	background: #fff;
+	background: #FF0000;
 	font-size: 20px;
 	text-align: center;
+	color:#fff;
 }
 /*-----cart-------*/
 .cart_body{
